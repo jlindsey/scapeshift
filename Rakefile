@@ -10,7 +10,8 @@ begin
     gem.email = "joshua.s.lindsey@gmail.com"
     gem.homepage = "http://github.com/jlindsey/scapeshift"
     gem.authors = ["Josh Lindsey"]
-    gem.add_development_dependency "shoulda", ">= 0"
+    gem.add_development_dependency "shoulda"
+    gem.add_development_dependency "assert2"
     gem.add_dependency "spidr"
     gem.add_dependency "nokogiri"
   end
