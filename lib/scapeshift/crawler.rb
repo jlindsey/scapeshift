@@ -1,5 +1,4 @@
-require 'scapeshift/crawlers/cards'
-require 'scapeshift/crawlers/sets'
+require 'scapeshift/crawlers'
 require 'scapeshift/card'
 require 'scapeshift/errors'
 
