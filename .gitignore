@@ -18,4 +18,8 @@ coverage
 rdoc
 pkg
 
+## Yard
+doc/*
+.yardoc
+
 ## PROJECT::SPECIFIC
