@@ -11,6 +11,7 @@ begin
     gem.homepage = "http://github.com/jlindsey/scapeshift"
     gem.authors = ["Josh Lindsey"]
     gem.add_development_dependency "shoulda"
+    gem.add_development_dependency "yard"
     gem.add_dependency "nokogiri"
   end
   Jeweler::GemcutterTasks.new
@@ -51,3 +52,7 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+require 'yard'
+YARD::Rake::YardocTask.new
+
