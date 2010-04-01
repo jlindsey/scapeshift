@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/scapeshift/crawlers/cards.rb",
      "lib/scapeshift/crawlers/sets.rb",
      "lib/scapeshift/errors.rb",
+     "scapeshift.gemspec",
      "test/helper.rb",
      "test/test_card.rb",
      "test/test_card_crawler.rb",
