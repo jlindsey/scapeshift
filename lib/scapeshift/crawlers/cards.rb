@@ -45,8 +45,7 @@ module Scapeshift
       # @author Josh Lindsey
       # @since 0.1.0
       #
-      # @todo Format Scraping
-      #   Add in crawling of formats (ie. Standard, Legacy, Singleton, etc)
+      # @todo Add in crawling of formats (ie. Standard, Legacy, Singleton, etc)
       #
       def self.crawl options = {}
         search_frag = ''
@@ -167,8 +166,7 @@ module Scapeshift
       # @return [String] A string that should look something like "2BR"
       #   (for a cost of 2 colorless mana, one black mana, and one red mana).
       #
-      # @todo Make array
-      #   Maybe make this an array in the form of ["2", "B", "R"]
+      # @todo Maybe make this an array in the form of ["2", "B", "R"]
       #   for easier parsing down the road?
       #
       # @author Josh Lindsey
@@ -186,8 +184,7 @@ module Scapeshift
       #
       # @return [Array] An array of the types
       #
-      # @todo Supertypes
-      #   Possibly change this to account for supertypes?
+      # @todo Possibly change this to account for supertypes?
       #   As right now, {Card} assumes the first element
       #   in the array is the base type.
       #
