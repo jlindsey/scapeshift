@@ -6,7 +6,9 @@ module Scapeshift
   ##
   # Contains the different web scrapers. All classes
   # in this module must implement a single public class
-  # method: {crawl}
+  # method: crawl
+  #
+  # @todo Add a Single crawler for scraping up single cards.
   #
   # @author Josh Lindsey
   #

@@ -1,3 +1,8 @@
+require 'set'
+require 'uri'
+require 'nokogiri'
+require 'open-uri'
+
 module Scapeshift
   module Crawlers
 
@@ -14,10 +19,6 @@ module Scapeshift
     # @since 0.1.0
     #
     class Cards
-      require 'nokogiri'
-      require 'set'
-      require 'open-uri'
-      require 'uri'
       
       ## The Base URI we grab from. Interpolated based on options passed-in.
       Text_Spoiler_URI = 'http://gatherer.wizards.com/Pages/Search/Default.aspx?output=spoiler&method=text%s'
@@ -43,6 +44,7 @@ module Scapeshift
       # @return [Set <Card>] A Set containing the {Card} objects we've scraped
       #
       # @author Josh Lindsey
+      #
       # @since 0.1.0
       #
       # @todo Add in crawling of formats (ie. Standard, Legacy, Singleton, etc)
