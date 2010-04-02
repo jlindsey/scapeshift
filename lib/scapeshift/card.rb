@@ -151,6 +151,47 @@ module Scapeshift
       self.pow = pt[0]
       self.tgh = pt[1]
     end
+
+    ##
+    # Operator method to determine sort order. Sorts based
+    # on {#name}.
+    #
+    # @param [Card] other_card The other Card to compare with
+    #
+    # @return [Integer] 1, 0, or -1
+    #
+    # @author Josh Lindsey
+    #
+    # @since 0.1.2
+    #
+    def <=> other_card
+      self.name <=> other_card.name
+    end
+
+    ##
+    # Operator method to determine equality.
+    #
+    # @param [Card] other_card The other Card to compare with
+    #
+    # @return [Boolean] Whether or not they are equal
+    #
+    # @author Josh Lindsey
+    #
+    # @since 0.1.2
+    #
+    def == other_card
+      if self.name == other_card.name and
+         self.cost == other_card.cost and
+         self.sets == other_card.sets and
+         self.image_uri == other_card.image_uri and
+         self.text == other_card.text and
+         self.types == other_card.types
+       
+        return true
+      end
+      
+      return false
+    end
   end
 end
 
