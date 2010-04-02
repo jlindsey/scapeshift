@@ -30,7 +30,7 @@ module Scapeshift
       Set_Search_Frag = '&set=["%s"]'
 
       ## The Set that we will be inserting the scaped card data into
-      @@cards = Set.new
+      @@cards = SortedSet.new
       ## The {Card} object being built in the current iteration of the {crawl} loop
       @@current_card = nil
 

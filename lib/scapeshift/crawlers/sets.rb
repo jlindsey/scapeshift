@@ -21,13 +21,13 @@ module Scapeshift
       ## The Oracle homepage, which is what we are scraping from
       Card_Sets_URI = 'http://gatherer.wizards.com/Pages/Default.aspx'
       
-      ## The Set containing the expansion sets found
-      @@sets = Set.new
+      ## The SortedSet containing the expansion sets found
+      @@sets = SortedSet.new
 
       ##
       # Scrapes the Oracle homepage for the expansion set list.
       #
-      # @return [Set <String>] A Set containing the expansion set list
+      # @return [SortedSet <String>] A Set containing the expansion set list
       #
       # @author Josh Lindsey
       #
