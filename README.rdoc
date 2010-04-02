@@ -1,16 +1,18 @@
-= scapeshift
+= Scapeshift
 
-Description goes here.
+Scapeshift is a webscraper rubygem designed for the Magic: The Gathering Oracle "Gatherer" card index.
+Since Wizards doesn't want to make an API for this system for various reasons, I've gone ahead and made
+a pseudo-API here.
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+== Usage
+
+Usage is as simple as can be:
+
+ # Grab the complete list of expansion sets
+ @sets = Scapeshift::Crawler.crawl :sets
+
+ # Grab the card set for an expansion
+ @alara_cards = Scapeshift::Crawler.crawl :cards, :set => 'Shards of Alara'
 
 == Copyright
 
