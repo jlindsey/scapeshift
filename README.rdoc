@@ -14,6 +14,17 @@ Usage is as simple as can be:
  # Grab the card set for an expansion
  @alara_cards = Scapeshift::Crawler.crawl :cards, :set => 'Shards of Alara'
 
+== Documentation
+
+This gem uses Yardoc syntax for documentation. You can generate these docs
+with <tt>rake yard</tt>. Point any webserver at the <tt>docs/</tt> directory to browse.
+
+Simple, with Thin:
+
+ $ cd /path/to/scapeshift
+ $ cd docs/
+ $ thin -A file -d start
+
 == Copyright
 
 Copyright (c) 2010 Josh Lindsey. See LICENSE for details.
