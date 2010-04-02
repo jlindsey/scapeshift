@@ -1,1 +1,1 @@
---protected --private
+--protected --private --default-return 'void'
