@@ -29,6 +29,9 @@ module Scapeshift
       ## The search fragment if we're searching on Sets.
       Set_Search_Frag = '&set=["%s"]'
 
+      ## The search fragment if we're searching on Formats.
+      Format_Search_Frag = '&format=["%s"]'
+
       ## The Set that we will be inserting the scaped card data into
       @@cards = SortedSet.new
       ## The {Card} object being built in the current iteration of the {crawl} loop
@@ -40,14 +43,13 @@ module Scapeshift
       # @param [Hash] options The options to determine what to scrape. One of these MUST be set.
       # @option options [String] :set ('')The set to scrape
       # @option options [String] :block ('') The block to scrape
+      # @option options [String] :format ('') The format to scrape
       #
       # @return [Set <Card>] A Set containing the {Card} objects we've scraped
       #
       # @author Josh Lindsey
       #
       # @since 0.1.0
-      #
-      # @todo Add in crawling of formats (ie. Standard, Legacy, Singleton, etc)
       #
       def self.crawl options = {}
         search_frag = ''
@@ -56,6 +58,9 @@ module Scapeshift
         end
         unless options[:set].nil?
           search_frag << Set_Search_Frag % options[:set]
+        end
+        unless options[:format].nil?
+          search_frag << Format_Search_Frag % options[:format]
         end
 
         doc = Nokogiri::HTML open(URI.escape(Text_Spoiler_URI % search_frag))
