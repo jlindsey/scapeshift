@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{scapeshift}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh Lindsey"]
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
      ".gitignore",
+     ".yardopts",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -26,6 +27,7 @@ Gem::Specification.new do |s|
      "lib/scapeshift.rb",
      "lib/scapeshift/card.rb",
      "lib/scapeshift/crawler.rb",
+     "lib/scapeshift/crawlers.rb",
      "lib/scapeshift/crawlers/cards.rb",
      "lib/scapeshift/crawlers/sets.rb",
      "lib/scapeshift/errors.rb",
@@ -55,13 +57,16 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<shoulda>, [">= 0"])
+      s.add_development_dependency(%q<yard>, [">= 0"])
       s.add_runtime_dependency(%q<nokogiri>, [">= 0"])
     else
       s.add_dependency(%q<shoulda>, [">= 0"])
+      s.add_dependency(%q<yard>, [">= 0"])
       s.add_dependency(%q<nokogiri>, [">= 0"])
     end
   else
     s.add_dependency(%q<shoulda>, [">= 0"])
+    s.add_dependency(%q<yard>, [">= 0"])
     s.add_dependency(%q<nokogiri>, [">= 0"])
   end
 end
