@@ -13,10 +13,10 @@ class TestSetCrawler < Test::Unit::TestCase
     end
 
     should "be proper format" do
-      assert_instance_of Set, @sets
+      assert_instance_of SortedSet, @sets
     end
 
-    should "be sets" do
+    should "be expansion sets" do
       # Just take a random sampling to check
       check = Set.new %w(Prophecy Shadowmoor Mirrodin Morningtide Guildpact)
       assert @sets.proper_superset?(check)
