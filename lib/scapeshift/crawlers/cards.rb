@@ -180,24 +180,21 @@ module Scapeshift
       end
 
       ##
-      # Parses the card types of the card.
+      # Parses the card types of the card. Simply passes the extracted String
+      # to the Card object. It handles the rest.
+      #
+      # @see Card#types=
       #
       # @param [Nokogiri::XML::NodeSet] row The NodeSet containing the types
       #
-      # @return [Array] An array of the types
-      #
-      # @todo Possibly change this to account for supertypes?
-      #   As right now, {Card} assumes the first element
-      #   in the array is the base type.
+      # @return [String] The card type line
       #
       # @author Josh Lindsey
       #
       # @since 0.1.0
       #
       def self._parse_type row
-        types = row./('td[2]').children.first.to_s.strip.split(' ')
-        types.delete('&mdash;')
-        types
+        row./('td[2]').children.first.to_s.strip
       end
 
       ##

@@ -36,7 +36,7 @@ class TestCardCrawler < Test::Unit::TestCase
       card = @cards.entries[@cards.size - 1]
 
       check_card = Scapeshift::Card.new :name => "Wurm's Tooth",
-        :types => ["Artifact"], :sets => [["Magic 2010", "Uncommon"], ["Tenth Edition", "Uncommon"], 
+        :types => "Artifact", :sets => [["Magic 2010", "Uncommon"], ["Tenth Edition", "Uncommon"], 
         ["Ninth Edition", "Uncommon"], ["Darksteel", "Uncommon"]],
         :cost => "2", :text => "Whenever a player casts a green spell, you may gain 1 life.",
         :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=72684&type=card"
