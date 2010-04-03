@@ -28,5 +28,15 @@ module Scapeshift
     # @since 0.1.0
     #
     class UnknownCardAttribute < StandardError; end
+
+    ##
+    # Thrown when an unknown metadata type is supplied to
+    # the Meta crawler.
+    #
+    # @author Josh Lindsey
+    #
+    # @since 0.1.4
+    #
+    class UnknownMetaType < StandardError; end
   end
 end

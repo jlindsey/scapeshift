@@ -10,7 +10,7 @@ module Scapeshift
   # should be interacting with.
   #
   # @example Scraping the Sets
-  #   @sets = Scapeshift::Crawler.crawl :sets
+  #   @sets = Scapeshift::Crawler.crawl :meta, :type => :sets
   # 
   # @example Scraping all the cards from the Shards of Alara block
   #   @cards = Scapeshift::Crawler.crawl :cards, :set => 'Shards of Alara'
@@ -31,7 +31,7 @@ module Scapeshift
     #
     # @param [Symbol] type The type of crawl operation to perform
     # @param [Hash] options Options to pass to Crawlers that support them.
-    #   See {Scapeshift::Crawlers::Cards.crawl} for a list of options.
+    #   See the classes in {Scapeshift::Crawlers} for a list of options.
     #
     # @return [Object] See the various {Crawlers} for return types on their crawl methods.
     #
@@ -43,8 +43,8 @@ module Scapeshift
     #
     def self.crawl type, options = {}
       case type
-      when :sets
-        Scapeshift::Crawlers::Sets.crawl
+      when :meta
+        Scapeshift::Crawlers::Meta.crawl options
       when :cards
         Scapeshift::Crawlers::Cards.crawl options
       else

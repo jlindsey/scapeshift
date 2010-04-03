@@ -1,5 +1,5 @@
 require 'scapeshift/crawlers/cards'
-require 'scapeshift/crawlers/sets'
+require 'scapeshift/crawlers/meta'
 
 module Scapeshift
   
@@ -9,8 +9,6 @@ module Scapeshift
   # method: crawl
   #
   # @todo Add a Single crawler for scraping up single cards.
-  # @todo Change the Set crawler to a Meta crawler and have it
-  #   scrape up Sets and Formats, and other metadata.
   #
   # @author Josh Lindsey
   #
