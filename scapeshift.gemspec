@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{scapeshift}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Josh Lindsey"]
@@ -29,14 +29,14 @@ Gem::Specification.new do |s|
      "lib/scapeshift/crawler.rb",
      "lib/scapeshift/crawlers.rb",
      "lib/scapeshift/crawlers/cards.rb",
-     "lib/scapeshift/crawlers/sets.rb",
+     "lib/scapeshift/crawlers/meta.rb",
      "lib/scapeshift/errors.rb",
      "scapeshift.gemspec",
      "test/helper.rb",
      "test/test_card.rb",
      "test/test_card_crawler.rb",
      "test/test_crawler_main.rb",
-     "test/test_set_crawler.rb"
+     "test/test_meta_crawler.rb"
   ]
   s.homepage = %q{http://github.com/jlindsey/scapeshift}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -46,8 +46,8 @@ Gem::Specification.new do |s|
   s.test_files = [
     "test/helper.rb",
      "test/test_crawler_main.rb",
+     "test/test_meta_crawler.rb",
      "test/test_card_crawler.rb",
-     "test/test_set_crawler.rb",
      "test/test_card.rb"
   ]
 
