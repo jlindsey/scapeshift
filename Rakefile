@@ -46,3 +46,7 @@ task :default => :test
 require 'yard'
 YARD::Rake::YardocTask.new
 
+desc "Searches for all @todo tags and prints them"
+task :todos do
+  puts %x{grep -inr "@todo" lib/}
+end
