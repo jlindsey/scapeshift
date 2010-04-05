@@ -1,5 +1,6 @@
 require 'scapeshift/crawlers/cards'
 require 'scapeshift/crawlers/meta'
+require 'scapeshift/crawlers/single'
 
 module Scapeshift
   
@@ -8,7 +9,7 @@ module Scapeshift
   # in this module must implement a single public class
   # method: crawl
   #
-  # @todo Add a Single crawler for scraping up single cards.
+  # @todo Add callback methods to each Crawler (eg. Sets.each_card &block)
   #
   # @author Josh Lindsey
   #

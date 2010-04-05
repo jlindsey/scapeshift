@@ -23,7 +23,6 @@ module Scapeshift
   # @since 0.1.0
   #
   class Crawler
-    include Scapeshift::Errors
     
     ##
     # The primary mode of interaction with the gem. Issues
@@ -47,6 +46,8 @@ module Scapeshift
         Scapeshift::Crawlers::Meta.crawl options
       when :cards
         Scapeshift::Crawlers::Cards.crawl options
+      when :single
+        Scapeshift::Crawlers::Single.crawl options
       else
         raise Scapeshift::Errors::InvalidCrawlerType.new "Invalid crawler type '#{type}'"
       end

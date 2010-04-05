@@ -41,7 +41,11 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self.crawl options
+      def self.crawl options = {}
+        if options[:type].nil?
+          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed :type"
+        end
+
         doc = Nokogiri::HTML open(Meta_URI)
         
         case options[:type]
@@ -52,7 +56,7 @@ module Scapeshift
         when :types
           _scrape_types doc
         else
-          raise Scapeshift::Errors::UnknownMetaType.new "unknown metadata type: '#{type}'"
+          raise Scapeshift::Errors::UnknownMetaType.new "unknown metadata type: '#{options[:type]}'"
         end
 
         @@meta

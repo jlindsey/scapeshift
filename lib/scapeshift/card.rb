@@ -63,6 +63,51 @@ module Scapeshift
 
     ## The interpolated Image_URI string
     attr_accessor :image_uri
+    
+    ##
+    # Converts a mana word into its representative cost symbol.
+    #
+    # @example
+    #   Scapeshift::Card.cost_symbol_from_str "Blue"  # => "U"
+    # 
+    # @example
+    #   Scapeshift::Card.cost_symbol_from_str "3"     # => "3"
+    #
+    # @param [String] str The String representation of the cost symbol
+    #
+    # @return [String] The symbol representing the mana cost
+    #
+    # @raise [Scapeshift::Errors::UnknownCostSymbol] If an urecognized word is supplied.
+    #   (eg. "Purple")
+    #
+    # @author Josh Lindsey
+    #
+    # @since 0.2.0
+    #
+    def self.cost_symbol_from_str str
+      # If the input is simply a number, it's already
+      # a valid cost symbol.
+      return str if str =~ /[\d]+/
+
+      # "Variable Colorless" is the word representation
+      # of X costs.
+      return "X" if str == "Variable Colorless"
+
+      case str
+      when 'White'
+        'W'
+      when 'Red'
+        'R'
+      when 'Blue'
+        'U'
+      when 'Black'
+        'B'
+      when 'Green'
+        'G'
+      else
+        raise Scapeshift::Errors::UnknownCostSymbol.new "Unrecognized cost '#{str}'"
+      end
+    end
 
     ##
     # Instantiate a new Card object.

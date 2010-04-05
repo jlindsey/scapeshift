@@ -52,6 +52,10 @@ module Scapeshift
       # @since 0.1.0
       #
       def self.crawl options = {}
+        if options[:set].nil? and options[:block].nil? and options[:format].nil?
+          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed one of :set, :block, or :format."
+        end
+
         search_frag = ''
         unless options[:block].nil?
           search_frag << Block_Search_Frag % options[:block]
