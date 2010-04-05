@@ -74,7 +74,7 @@ module Scapeshift
       ##
       # Scrape the card name from the detail page.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [String] The card's name
       #
@@ -90,7 +90,7 @@ module Scapeshift
       ##
       # Scrape the card's mana cost from the detail page.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [String] The formatted string representation of the card's cost. 
       #   (eg. "2BU")
@@ -111,7 +111,7 @@ module Scapeshift
       ##
       # Scrape the card's types from the detail page.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [String] The types line string
       #
@@ -129,7 +129,7 @@ module Scapeshift
       ##
       # Scrape the card's rules text from the detail page.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [String] The rules text
       #
@@ -147,7 +147,7 @@ module Scapeshift
       ##
       # Scrapes the printings (sets and rarities) of the card.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [Array] The array of sets and rarities
       #
@@ -175,7 +175,7 @@ module Scapeshift
       ##
       # Scapes the card's Power and Toughness (if a creature card).
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [Array] The power and toughness
       # @return [nil] If it's not a creature
@@ -197,7 +197,7 @@ module Scapeshift
       # Scapes the multiverse ID of this card so the Card object can
       # interpolate it into the image URI.
       #
-      # @param [Nokogiri::HTML::Document] The detail page document
+      # @param [Nokogiri::HTML::Document] doc The detail page document
       #
       # @return [String] The mutliverse ID of this card
       #

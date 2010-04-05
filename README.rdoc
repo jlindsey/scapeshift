@@ -9,10 +9,13 @@ a pseudo-API here.
 Usage is as simple as can be:
 
  # Grab the complete list of expansion sets
- @sets = Scapeshift::Crawler.crawl :sets
+ @sets = Scapeshift::Crawler.crawl :meta, :type => :sets
 
  # Grab the card set for an expansion
  @alara_cards = Scapeshift::Crawler.crawl :cards, :set => 'Shards of Alara'
+
+ # Grab a single named card
+ @card = Scapeshift::Crawler.crawl :single, :name => 'Counterspell'
 
 == Documentation
 

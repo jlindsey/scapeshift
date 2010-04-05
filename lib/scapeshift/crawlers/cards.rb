@@ -177,9 +177,6 @@ module Scapeshift
       # @return [String] A string that should look something like "2BR"
       #   (for a cost of 2 colorless mana, one black mana, and one red mana).
       #
-      # @todo Maybe make this an array in the form of ["2", "B", "R"]
-      #   for easier parsing down the road?
-      #
       # @author Josh Lindsey
       #
       # @since 0.1.0
