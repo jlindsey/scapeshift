@@ -6,48 +6,66 @@ class TestMetaCrawler < Test::Unit::TestCase
       assert_respond_to Scapeshift::Crawlers::Meta, :crawl
     end
 
-    context "crawling expansion Sets" do
-      setup do
-        @sets = Scapeshift::Crawlers::Meta.crawl :type => :sets
+    context "The Meta crawler" do
+      context "when passed no options" do
+        should "raise the appropriate exception" do
+          assert_raise Scapeshift::Errors::InsufficientOptions do
+            Scapeshift::Crawlers::Meta.crawl {}
+          end
+        end
       end
 
-      should "return a SortedSet" do
-        assert_instance_of SortedSet, @sets
+      context "when passed a bad meta type" do
+        should "raise the appropiate exception" do
+          assert_raise Scapeshift::Errors::UnknownMetaType do
+            Scapeshift::Crawlers::Meta.crawl :type => :not_a_real_type
+          end
+        end
       end
 
-      should "return valid expansion sets" do
-        check = Set.new %w{Darksteel Coldsnap Zendikar Shadowmoor Lorwyn Nemesis Onslaught}
-        assert check.proper_subset?(@sets)
-      end
-    end
+      context "when crawling expansion Sets" do
+        setup do
+          @sets = Scapeshift::Crawler.crawl :meta, :type => :sets
+        end
 
-    context "crawling Formats" do
-      setup do
-        @formats = Scapeshift::Crawlers::Meta.crawl :type => :formats
-      end
+        should "return a SortedSet" do
+          assert_instance_of SortedSet, @sets
+        end
 
-      should "return a SortedSet" do
-        assert_instance_of SortedSet, @formats
-      end
-
-      should "return valid formats" do
-        check = Set.new %w{Standard Classic Legacy Extended Freeform Vintage}
-        assert check.proper_subset?(@formats)
-      end
-    end
-
-    context "crawling Card Types" do
-      setup do
-        @types = Scapeshift::Crawlers::Meta.crawl :type => :types
+        should "return valid expansion sets" do
+          check = Set.new %w{Darksteel Coldsnap Zendikar Shadowmoor Lorwyn Nemesis Onslaught}
+          assert check.proper_subset?(@sets)
+        end
       end
 
-      should "return a SortedSet" do
-        assert_instance_of SortedSet, @types
+      context "when crawling Formats" do
+        setup do
+          @formats = Scapeshift::Crawler.crawl :meta, :type => :formats
+        end
+
+        should "return a SortedSet" do
+          assert_instance_of SortedSet, @formats
+        end
+
+        should "return valid formats" do
+          check = Set.new %w{Standard Classic Legacy Extended Freeform Vintage}
+          assert check.proper_subset?(@formats)
+        end
       end
 
-      should "return valid card types" do
-        check = Set.new %w{Artifact World Tribal Plane Land}
-        assert check.proper_subset?(@types)
+      context "when crawling Card Types" do
+        setup do
+          @types = Scapeshift::Crawler.crawl :meta, :type => :types
+        end
+
+        should "return a SortedSet" do
+          assert_instance_of SortedSet, @types
+        end
+
+        should "return valid card types" do
+          check = Set.new %w{Artifact World Tribal Plane Land}
+          assert check.proper_subset?(@types)
+        end
       end
     end
   end
