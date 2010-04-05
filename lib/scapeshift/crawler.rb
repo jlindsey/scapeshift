@@ -40,17 +40,22 @@ module Scapeshift
     #
     # @since 0.1.0
     #
-    def self.crawl type, options = {}
+    def self.crawl type, &block
+      crawler = nil
+
       case type
       when :meta
-        Scapeshift::Crawlers::Meta.crawl options
+        crawler = Scapeshift::Crawlers::Meta.new
       when :cards
-        Scapeshift::Crawlers::Cards.crawl options
+        crawler = Scapeshift::Crawlers::Cards.new
       when :single
-        Scapeshift::Crawlers::Single.crawl options
+        crawler = Scapeshift::Crawlers::Single.new
       else
         raise Scapeshift::Errors::InvalidCrawlerType.new "Invalid crawler type '#{type}'"
       end
+
+      yield crawler
+      crawler.crawl
     end
   end
 end
