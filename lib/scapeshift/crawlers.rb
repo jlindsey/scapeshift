@@ -1,3 +1,4 @@
+require 'scapeshift/crawlers/base'
 require 'scapeshift/crawlers/cards'
 require 'scapeshift/crawlers/meta'
 require 'scapeshift/crawlers/single'

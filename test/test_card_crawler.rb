@@ -1,17 +1,16 @@
 require 'helper'
 
 class TestCardCrawler < Test::Unit::TestCase
-  context "The Card crawler class" do
-    should "respond to crawl" do
-      assert_respond_to Scapeshift::Crawlers::Cards, :crawl
-    end
-  end
-
   context "The Card crawler" do
+    should "respond to crawl" do
+      crawler = Scapeshift::Crawlers::Cards.new :set => "fake" 
+      assert_respond_to crawler, :crawl
+    end
+
     context "when passed insufficient options" do
       should "raise the appropriate exception" do
         assert_raise Scapeshift::Errors::InsufficientOptions do
-          Scapeshift::Crawlers::Cards.crawl {}
+          Scapeshift::Crawlers::Cards.new
         end
       end
     end
@@ -22,7 +21,7 @@ class TestCardCrawler < Test::Unit::TestCase
         # keep updating this test when new blocks cycle in.
         @cards = Scapeshift::Crawler.crawl :cards, :set => "Darksteel"
       end
-
+      
       should "return a SortedSet of Card objects" do
         assert_instance_of SortedSet, @cards
         assert_instance_of Scapeshift::Card, @cards.to_a.first

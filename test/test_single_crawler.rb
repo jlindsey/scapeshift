@@ -1,17 +1,16 @@
 require 'helper'
 
 class TestSingleCrawler < Test::Unit::TestCase
-  context "The Single crawler class" do
-    should "implement a crawl method" do
-      assert_respond_to Scapeshift::Crawlers::Single, :crawl
-    end
-  end
-
   context "The Single crawler" do
+    should "respond to crawl" do
+      assert_respond_to Scapeshift::Crawlers::Single.new(:name => "fake"), :crawl
+    end
+
     context "when no name is supplied" do
       should "raise the proper exception" do
         assert_raise Scapeshift::Errors::InsufficientOptions do
-          Scapeshift::Crawlers::Single.crawl
+          crawler = Scapeshift::Crawlers::Single.new
+          crawler.crawl
         end
       end
     end
@@ -19,7 +18,8 @@ class TestSingleCrawler < Test::Unit::TestCase
     context "when an ambiguous card name is supplied" do
       should "raise the proper exception" do
         assert_raise Scapeshift::Errors::CardNameAmbiguousOrNotFound do
-          Scapeshift::Crawlers::Single.crawl :name => "vial"
+          crawler = Scapeshift::Crawlers::Single.new :name => "vial"
+          crawler.crawl
         end
       end
     end
@@ -27,7 +27,10 @@ class TestSingleCrawler < Test::Unit::TestCase
     context "when an invalid card name is supplied" do
       should "raise the proper exception" do
         assert_raise Scapeshift::Errors::CardNameAmbiguousOrNotFound do
-          Scapeshift::Crawlers::Single.crawl :name => "fuck"
+          # Vulgar, but we can be assured that this search
+          # will always be empty.
+          crawler = Scapeshift::Crawlers::Single.new :name => "fuck"
+          crawler.crawl
         end
       end
     end

@@ -2,7 +2,7 @@ require 'helper'
 
 class TestCrawlerMain < Test::Unit::TestCase
   context "The Crawler router class" do
-    should "have a crawl method" do
+    should "respond to crawl" do
       assert_respond_to Scapeshift::Crawler, :crawl
     end
 
