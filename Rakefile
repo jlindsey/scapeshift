@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "scapeshift"
     gem.summary = %Q{Magic: The Gathering Oracle web scraper}
-    gem.description = %Q{}
+    gem.description = %Q{Powers the Scapeshift web API.}
     gem.email = "joshua.s.lindsey@gmail.com"
     gem.homepage = "http://github.com/jlindsey/scapeshift"
     gem.authors = ["Josh Lindsey"]
