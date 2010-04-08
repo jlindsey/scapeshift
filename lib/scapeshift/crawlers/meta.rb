@@ -1,7 +1,6 @@
 require 'set'
 require 'nokogiri'
 require 'open-uri'
-require 'scapeshift/callbacks'
 
 module Scapeshift
   module Crawlers
