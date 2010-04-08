@@ -63,7 +63,9 @@ module Scapeshift
       #
       def initialize opts = {}
         super opts
-       
+      
+        @cards = SortedSet.new
+
         if self.options[:set].nil? and self.options[:block].nil? and self.options[:format].nil?
           raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed one of :set, :block, or :format."
         end
@@ -96,23 +98,23 @@ module Scapeshift
 
         self.hook :before_scrape, self.doc
 
-        @@current_card = nil
+        @current_card = nil
 
         rows.each do |row|
           if row.children.length == 2
             self.hook :every_card, self.current_card
-            @@cards << @@current_card
-            @@current_card = nil
+            @cards << @current_card
+            @current_card = nil
             next
           end
 
-          @@current_card = Scapeshift::Card.new if @@current_card.nil?
+          @current_card = Scapeshift::Card.new if @current_card.nil?
           _parse_row row
         end
         
         self.hook :after_scrape, self.cards
 
-        @@cards
+        @cards
       end
 
       private
@@ -130,21 +132,21 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_row row
+      def _parse_row row
         case _row_type(row)
         when :name
-          @@current_card.name = _parse_name row
-          @@current_card.image_uri_from_id = _parse_image_uri row
+          @current_card.name = _parse_name row
+          @current_card.image_uri_from_id = _parse_image_uri row
         when :cost
-          @@current_card.cost = _parse_cost row
+          @current_card.cost = _parse_cost row
         when :type
-          @@current_card.types = _parse_type row
+          @current_card.types = _parse_type row
         when :'pow/tgh'
-          @@current_card.pow_tgh = _parse_pow_tgh row
+          @current_card.pow_tgh = _parse_pow_tgh row
         when :'rules text'
-          @@current_card.text = _parse_rules_text row
+          @current_card.text = _parse_rules_text row
         when :'set/rarity'
-          @@current_card.sets = _parse_set_rarity row
+          @current_card.sets = _parse_set_rarity row
         else
           raise Scapeshift::Errors::UnknownCardAttribute.new "Unable to parse attribute: '#{_row_type(row)}'"
         end
@@ -161,7 +163,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._row_type row
+      def _row_type row
         row./('td[1]').children.first.to_s.strip.chop.downcase.to_sym
       end
 
@@ -176,7 +178,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_name row
+      def _parse_name row
         row./('td[2]/a').children.last.to_s
       end
       
@@ -193,7 +195,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_image_uri row
+      def _parse_image_uri row
         row./('td[2]/a').first[:href] =~ /multiverseid=(\d+)/
         $1
       end
@@ -210,7 +212,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_cost row
+      def _parse_cost row
         row./('td[2]').children.last.to_s.strip
       end
 
@@ -228,7 +230,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_type row
+      def _parse_type row
         row./('td[2]').children.first.to_s.strip
       end
 
@@ -244,7 +246,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_pow_tgh row
+      def _parse_pow_tgh row
         pt_str = row./('td[2]').children.first.to_s.strip
         return nil if pt_str.empty?
         pt_str =~ /\((.*?)\/(.*?)\)/
@@ -262,7 +264,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_rules_text row
+      def _parse_rules_text row
         text = ''
         row./('td[2]').children.each do |block|
           if block.name == 'br'
@@ -287,7 +289,7 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self._parse_set_rarity row
+      def _parse_set_rarity row
         ret_ary = []
         sets_ary = row./('td[2]').children.first.to_s.strip.split(', ')
         sets_ary.each do |set_str|
