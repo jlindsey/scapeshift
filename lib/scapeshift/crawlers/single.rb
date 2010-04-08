@@ -6,14 +6,22 @@ module Scapeshift
   module Crawlers
 
     ##
-    # Scrapes the card detail Oracle page for a single card. Like
-    # the other {Crawlers}, it has one public class method: {crawl}.
+    # Scrapes the Oracle card detail page for a single card. Like
+    # the other Crawlers, it overrides the {#crawl} method from {Base}.
+    #
+    # @example Directly instantiating the crawler
+    #   crawler = Scapeshift::Crawlers::Single.new :name => 'Counterspell'
+    #   @card = crawler.crawl
     #
     # @author Josh Lindsey
     #
     # @since 0.2.0
     #
-    class Single
+    class Single < Base
+      has_callback_hook :before_scrape
+      has_callback_hook :after_scrape
+      has_callback_hook :every_attr
+
 
       ## The base search page for card names. Joined to {Card_Name_Frag}.
       Card_Name_Search_URI = 'http://gatherer.wizards.com/Pages/Search/Default.aspx?name='
@@ -23,14 +31,38 @@ module Scapeshift
       Card_Name_Frag = '+[%s]'
 
       ## The {Card} object representing the scraped data
-      @@card = nil
+      attr_reader :card
+
+      ## The Nokogiri document representing the card detail page
+      attr_reader :doc
+
+      ##
+      # Creates a new Single crawler object.
+      #
+      # @param [Hash] opts Options hash
+      # @option opts [String] :name ('') The name of the card to scrape
+      #
+      # @return [Scapeshift::Crawlers::Single] The Single crawler object
+      #
+      # @raise [Scapeshift::Errors::InsufficientOptions] If :name isn't passed
+      #
+      # @author Josh Lindsey
+      #
+      # @since 0.3.0
+      #
+      def initialize opts = {}
+        super opts
+
+        @card = Scapeshift::Card.new
+
+        if self.options[:name].nil?
+          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed :name"
+        end
+      end
 
       ##
       # Scrapes the Oracle card detail page for the specified  card name.
       # 
-      # @param [Hash] options The options to determine what to scrape.
-      # @option options [String] :name ('') The name of the card to scrape
-      #
       # @return [Scapeshift::Card] The Card containing the scraped data
       #
       # @raise [Scapeshift::Errors::CardNameAmbiguousOrNotFound] 
@@ -41,32 +73,43 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self.crawl options = {}
-        if options[:name].nil?
-          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed :name as an option."
-        end
-
-        @@card = Scapeshift::Card.new
-
+      def crawl
         uri_str = Card_Name_Search_URI
-        options[:name].split(' ').each { |word| uri_str << Card_Name_Frag % word }
+        self.options[:name].split(' ').each { |word| uri_str << Card_Name_Frag % word }
 
-        doc = Nokogiri::HTML open(URI.escape uri_str)
+        @doc = Nokogiri::HTML open(URI.escape uri_str)
+
+        self.hook :before_scrape, @doc
         
         # Check to make sure we're actually on the card detail page.
         unless doc.css('div.filterList').empty?
           raise Scapeshift::Errors::CardNameAmbiguousOrNotFound.new "Unable to find card: '#{options[:name]}'"
         end
         
-        @@card.name = _parse_name doc
-        @@card.cost = _parse_cost doc
-        @@card.types = _parse_types doc
-        @@card.text = _parse_text doc
-        @@card.sets = _parse_sets doc
-        @@card.pow_tgh = _parse_pow_tgh doc
-        @@card.image_uri_from_id = _parse_multiverse_id doc
+        @card.name = _parse_name doc
+        self.hook :every_attr, @card
 
-        @@card
+        @card.cost = _parse_cost doc
+        self.hook :every_attr, @card
+
+        @card.types = _parse_types doc
+        self.hook :every_attr, @card
+
+        @card.text = _parse_text doc
+        self.hook :every_attr, @card
+
+        @card.sets = _parse_sets doc
+        self.hook :every_attr, @card
+
+        @card.pow_tgh = _parse_pow_tgh doc
+        self.hook :every_attr, @card
+
+        @card.image_uri_from_id = _parse_multiverse_id doc
+        self.hook :every_attr, @card
+
+        self.hook :after_scrape, @card
+
+        @card
       end
 
       private

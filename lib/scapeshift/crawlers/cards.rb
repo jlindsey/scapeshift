@@ -8,18 +8,22 @@ module Scapeshift
 
     ##
     # The Card crawler scrapes Card data from the Oracle textual
-    # spoiler pages. Like the other Crawlers, it has one public
-    # class method: {crawl}.
+    # spoiler pages. Like the other Crawlers, it overrides the {#crawl}
+    # method inherited from {Base}.
     # 
-    # @example
-    #   @cards = Scapeshift::Crawlers::Cards.crawl :set => 'Shards of Alara'
+    # @example Directly instantiating the crawler
+    #   crawler = Scapeshift::Crawlers::Cards.new :set => 'Shards of Alara'
+    #   @cards = crawler.crawl
     #
     # @author Josh Lindsey
     #
     # @since 0.1.0
     #
-    class Cards
-      
+    class Cards < Base
+      has_callback_hook :before_scrape
+      has_callback_hook :after_scrape
+      has_callback_hook :every_card
+
       ## The Base URI we grab from. Interpolated based on options passed-in.
       Text_Spoiler_URI = 'http://gatherer.wizards.com/Pages/Search/Default.aspx?output=spoiler&method=text%s'
       
@@ -31,19 +35,43 @@ module Scapeshift
 
       ## The search fragment if we're searching on Formats.
       Format_Search_Frag = '&format=["%s"]'
+      
+      ## The Nokogiri document this instance is scraping
+      attr_reader :doc
 
-      ## The Set that we will be inserting the scaped card data into
-      @@cards = SortedSet.new
-      ## The {Card} object being built in the current iteration of the {crawl} loop
-      @@current_card = nil
+      ## The SortedSet of {Card} objects being built
+      attr_reader :cards
+
+      ## The {Card} currently being built
+      attr_reader :current_card
+
+      ##
+      # Creates a new Cards crawler object.
+      #
+      # @param [Hash] opts The options to determine what to set. One of these *must* be set.
+      # @option opts [String] :set ('') The set to scrape (eg. "Darksteel")
+      # @option opts [String] :block ('') The block to scrape (eg. "Lorwyn block")
+      # @option opts [String] :format ('') The format to scrape (eg. "Legacy")
+      #
+      # @return [Scapeshift::Crawlers::Cards] The new Cards crawler
+      #
+      # @raise [Scapeshift::Errors::InsufficientOptions] If at least one of the options aren't set
+      #
+      # @author Josh Lindsey
+      #
+      # @since 0.3.0
+      #
+      def initialize opts = {}
+        super opts
+       
+        if self.options[:set].nil? and self.options[:block].nil? and self.options[:format].nil?
+          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed one of :set, :block, or :format."
+        end
+      end
 
       ##
       # Scrapes the Oracle Text Spoiler page for the specified set or block.
-      #
-      # @param [Hash] options The options to determine what to scrape. One of these MUST be set.
-      # @option options [String] :set ('')The set to scrape
-      # @option options [String] :block ('') The block to scrape
-      # @option options [String] :format ('') The format to scrape
+      # Overridden from {Base}.
       #
       # @return [Set <Card>] A Set containing the {Card} objects we've scraped
       #
@@ -51,29 +79,28 @@ module Scapeshift
       #
       # @since 0.1.0
       #
-      def self.crawl options = {}
-        if options[:set].nil? and options[:block].nil? and options[:format].nil?
-          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed one of :set, :block, or :format."
-        end
-
+      def crawl
         search_frag = ''
-        unless options[:block].nil?
-          search_frag << Block_Search_Frag % options[:block]
+        unless self.options[:block].nil?
+          search_frag << Block_Search_Frag % self.options[:block]
         end
-        unless options[:set].nil?
-          search_frag << Set_Search_Frag % options[:set]
+        unless self.options[:set].nil?
+          search_frag << Set_Search_Frag % self.options[:set]
         end
-        unless options[:format].nil?
-          search_frag << Format_Search_Frag % options[:format]
+        unless self.options[:format].nil?
+          search_frag << Format_Search_Frag % self.options[:format]
         end
 
-        doc = Nokogiri::HTML open(URI.escape(Text_Spoiler_URI % search_frag))
+        @doc = Nokogiri::HTML open(URI.escape(Text_Spoiler_URI % search_frag))
         rows = doc.xpath('//div[@class="textspoiler"]/table/tr')
+
+        self.hook :before_scrape, self.doc
 
         @@current_card = nil
 
         rows.each do |row|
           if row.children.length == 2
+            self.hook :every_card, self.current_card
             @@cards << @@current_card
             @@current_card = nil
             next
@@ -82,6 +109,8 @@ module Scapeshift
           @@current_card = Scapeshift::Card.new if @@current_card.nil?
           _parse_row row
         end
+        
+        self.hook :after_scrape, self.cards
 
         @@cards
       end
@@ -90,7 +119,7 @@ module Scapeshift
      
       ##
       # Primary "router" method that's called on every iteration of the main
-      # {crawl} loop. Passes the current row to the specialized parser methods.
+      # {#crawl} loop. Passes the current row to the specialized parser methods.
       #
       # @param [Nokogiri::XML::NodeSet] row The Nokogiri NodeSet comprising the table row to parse
       #
