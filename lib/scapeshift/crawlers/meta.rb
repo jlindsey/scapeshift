@@ -48,6 +48,8 @@ module Scapeshift
       def initialize opts = {}
         super opts
 
+        @meta = SortedSet.new
+
         if self.options[:type].nil?
           raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed :type"
         end
@@ -65,12 +67,11 @@ module Scapeshift
       # @since 0.1.0
       #
       def crawl
-        @meta = SortedSet.new
         @doc = Nokogiri::HTML open(Meta_URI)
        
         self.hook :before_scrape, @doc
 
-        case @options.type
+        case @options[:type]
         when :sets
           _scrape_sets @doc
         when :formats
@@ -97,7 +98,7 @@ module Scapeshift
       #
       # @since 0.1.4
       #
-      def self._scrape_sets doc
+      def _scrape_sets doc
         sets = doc.css 'select#ctl00_ctl00_MainContent_Content_SearchControls_setAddText'
         sets.children.each { |set| @meta << set['value'] } 
       end
@@ -111,7 +112,7 @@ module Scapeshift
       #
       # @since 0.1.4
       #
-      def self._scrape_formats doc
+      def _scrape_formats doc
         formats = doc.css 'select#ctl00_ctl00_MainContent_Content_SearchControls_formatAddText'
         formats.children.each { |format| @meta << format['value'] }
       end
@@ -125,7 +126,7 @@ module Scapeshift
       #
       # @since 0.1.4
       #
-      def self._scrape_types doc
+      def _scrape_types doc
         types = doc.css'select#ctl00_ctl00_MainContent_Content_SearchControls_typeAddText'
         types.children.each { |type| @meta << type['value'] }
       end
