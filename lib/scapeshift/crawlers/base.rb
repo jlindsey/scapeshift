@@ -97,7 +97,7 @@ module Scapeshift
 
         self.class_eval %Q{
           def #{symbol} &block
-            @@callbacks[#{symbol}] << Proc.new(&block)
+            @@callbacks[:#{symbol}] << Proc.new(&block)
           end
         }
       end
