@@ -71,5 +71,15 @@ module Scapeshift
     # @since 0.2.0
     #
     class UnknownCostSymbol < StandardError; end
+
+    ##
+    # Raised when a subclass of {Crawlers::Base} doesn't
+    # override a required method (such as {Crawlers::Base#crawl}).
+    #
+    # @author Josh Lindsey
+    #
+    # @since 0.3.0
+    #
+    class InvalidSubclass < StandardError; end
   end
 end
