@@ -9,6 +9,8 @@ module Scapeshift
     # Scrapes the card detail Oracle page for a single card. Like
     # the other {Crawlers}, it has one public class method: {crawl}.
     #
+    # @todo Add support for scraping Planechase Plane cards.
+    #
     # @author Josh Lindsey
     #
     # @since 0.2.0
