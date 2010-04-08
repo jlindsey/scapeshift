@@ -29,7 +29,7 @@ module Scapeshift
     # scaping commands to the specific {Crawlers}.
     #
     # @param [Symbol] type The type of crawl operation to perform
-    # @param [Hash] options Options to pass to Crawlers that support them.
+    # @param [Hash] opts Options to pass to Crawlers that support them.
     #   See the classes in {Scapeshift::Crawlers} for a list of options.
     #
     # @return [Object] See the various {Crawlers} for return types on their crawl methods.
@@ -40,21 +40,21 @@ module Scapeshift
     #
     # @since 0.1.0
     #
-    def self.crawl type, &block
+    def self.crawl type, opts = {}, &block
       crawler = nil
 
       case type
       when :meta
-        crawler = Scapeshift::Crawlers::Meta.new
+        crawler = Scapeshift::Crawlers::Meta.new opts
       when :cards
-        crawler = Scapeshift::Crawlers::Cards.new
+        crawler = Scapeshift::Crawlers::Cards.new opts
       when :single
-        crawler = Scapeshift::Crawlers::Single.new
+        crawler = Scapeshift::Crawlers::Single.new opts
       else
         raise Scapeshift::Errors::InvalidCrawlerType.new "Invalid crawler type '#{type}'"
       end
 
-      yield crawler
+      yield crawler if block_given?
       crawler.crawl
     end
   end
