@@ -125,7 +125,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_name doc
+      def _parse_name doc
         doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameRow')./('div[2]').
           children.first.to_s.strip
       end
@@ -144,7 +144,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_cost doc
+      def _parse_cost doc
         str = ''
         costs = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manaRow')./('div[2]/img')
         costs.each { |cost| str << Scapeshift::Card.cost_symbol_from_str(cost['alt']) }
@@ -164,7 +164,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_types doc
+      def _parse_types doc
         doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeRow')./('div[2]').
           children.first.to_s.strip
       end
@@ -180,7 +180,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_text doc
+      def _parse_text doc
         text = ''
         blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow')./('div[2]/div[@class=cardtextbox]')
         _recursive_parse_text blocks, 0, nil, text
@@ -198,7 +198,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_sets doc
+      def _parse_sets doc
         regex = /^(.*?) \((.*?)\)$/
         sets_ary = []
 
@@ -227,7 +227,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_pow_tgh doc
+      def _parse_pow_tgh doc
         pt_row = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ptRow')
         return nil if pt_row.empty?
 
@@ -248,7 +248,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._parse_multiverse_id doc
+      def _parse_multiverse_id doc
         src = doc.css('img#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardImage').first['src']
         src =~ /multiverseid=(.*?)&/
         $1
@@ -271,7 +271,7 @@ module Scapeshift
       #
       # @since 0.2.0
       #
-      def self._recursive_parse_text node_ary, pos, last_element, text
+      def _recursive_parse_text node_ary, pos, last_element, text
         node = node_ary[pos]
         return if node.nil?
 
