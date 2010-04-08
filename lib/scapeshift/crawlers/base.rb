@@ -17,8 +17,25 @@ module Scapeshift
       ## Options hash. Keys will differ between crawlers.
       attr_accessor :options
 
-      def initialize
-        self.options = {}
+      ##
+      # Returns a new instance of a Crawler.
+      #
+      # @param [Hash] opts The options hash. Keys will differ between crawlers.
+      #
+      # @return [Crawlers::Base] The Crawler instance
+      #
+      # @raise [Scapeshift::Errors::InsufficientOptions] If the opts hash is empty
+      #
+      # @author Josh Lindsey
+      #
+      # @since 0.3.0
+      #
+      def initialize opts = {}
+        if opts.empty?
+          raise Scapeshift::Errors::InsufficientOptions.new "The options hash must not be null"
+        end
+
+        self.options = opts
       end
     
       ##
