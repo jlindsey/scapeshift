@@ -178,6 +178,8 @@ module Scapeshift
       #
       # @return [String] The rules text
       #
+      # @see #_recursive_parse_text
+      #
       # @author Josh Lindsey
       #
       # @since 0.2.0
@@ -259,14 +261,14 @@ module Scapeshift
       ##
       # Recursively parse the detail page text, since it's contained within
       # elements of its own. Also converts mana images to symbols. Called from
-      # {_parse_text}.
+      # {#_parse_text}.
       #
       # @param [Array] node_ary The array of nodes for the current recursion
       # @param [Integer] pos The current position in the current node_ary
       # @param [Symbol] last_element The last element traversed, used for formatting
       # @param [String] text A pointer to the text string we're building
       #
-      # @see _parse_text
+      # @see #_parse_text
       # @see Scapeshift::Card.cost_symbol_from_str
       #
       # @author Josh Lindsey

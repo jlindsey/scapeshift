@@ -21,7 +21,7 @@ module Scapeshift
 
     ##
     # Raised when an unknown card attribute is encountered in
-    # {Scapeshift::Crawlers::Cards._parse_row}
+    # {Scapeshift::Crawlers::Cards#_parse_row}
     #
     # @author Josh Lindsey
     #
