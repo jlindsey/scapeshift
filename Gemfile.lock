@@ -16,6 +16,10 @@ dependencies:
     group: 
     - :default
     version: ">= 0"
+  bundler: 
+    group: 
+    - :default
+    version: ">= 0"
   jeweler: 
     group: 
     - :default
@@ -33,6 +37,8 @@ specs:
     version: 0.8.7
 - bluecloth: 
     version: 2.0.7
+- bundler: 
+    version: 0.9.19
 - json_pure: 
     version: 1.2.4
 - gemcutter: 
@@ -51,7 +57,12 @@ specs:
     version: 2.10.3
 - yard: 
     version: 0.5.4
-hash: 89fa0e4f0c6b4215df3e96c7d016a7b2215d94b9
+    source: 0
+hash: 675dfdb8538ed9f906299edf9fc37e176c396f53
 sources: 
+- Git: 
+    uri: git://github.com/lsegal/yard.git
+    git: git://github.com/lsegal/yard.git
+    ref: 897bb4a987d1ffb44a5fcf25348007b9a7755f4e
 - Rubygems: 
     uri: http://gemcutter.org
