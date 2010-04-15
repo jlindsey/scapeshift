@@ -18,8 +18,11 @@ coverage
 rdoc
 pkg
 
-## Yard
+## YARD
 doc/*
 .yardoc
+
+## BUNDLER
+.bundle/*
 
 ## PROJECT::SPECIFIC

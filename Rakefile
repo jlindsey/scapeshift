@@ -10,8 +10,7 @@ begin
     gem.email = "joshua.s.lindsey@gmail.com"
     gem.homepage = "http://github.com/jlindsey/scapeshift"
     gem.authors = ["Josh Lindsey"]
-    gem.add_development_dependency "shoulda"
-    gem.add_development_dependency "yard"
+    gem.add_development_dependency "bundler"
     gem.add_dependency "nokogiri"
   end
   Jeweler::GemcutterTasks.new

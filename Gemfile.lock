@@ -1,0 +1,57 @@
+--- 
+dependencies: 
+  bluecloth: 
+    group: 
+    - :default
+    version: ">= 0"
+  rake: 
+    group: 
+    - :default
+    version: ">= 0"
+  shoulda: 
+    group: 
+    - :default
+    version: ">= 0"
+  yard: 
+    group: 
+    - :default
+    version: ">= 0"
+  jeweler: 
+    group: 
+    - :default
+    version: ">= 0"
+  nokogiri: 
+    group: 
+    - :default
+    version: ">= 0"
+  rdoc: 
+    group: 
+    - :default
+    version: ">= 0"
+specs: 
+- rake: 
+    version: 0.8.7
+- bluecloth: 
+    version: 2.0.7
+- json_pure: 
+    version: 1.2.4
+- gemcutter: 
+    version: 0.5.0
+- git: 
+    version: 1.2.5
+- rubyforge: 
+    version: 2.0.4
+- jeweler: 
+    version: 1.4.0
+- nokogiri: 
+    version: 1.4.1
+- rdoc: 
+    version: 2.5.3
+- shoulda: 
+    version: 2.10.3
+- yard: 
+    version: 0.5.4
+hash: 89fa0e4f0c6b4215df3e96c7d016a7b2215d94b9
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
