@@ -10,6 +10,7 @@ class CardTest < Test::Unit::TestCase
       assert_equal "G", Scapeshift::Card.cost_symbol_from_str("Green")
       assert_equal "X", Scapeshift::Card.cost_symbol_from_str("Variable Colorless")
       assert_equal "3", Scapeshift::Card.cost_symbol_from_str("3")
+      assert_equal "[chaos]", Scapeshift::Card.cost_symbol_from_str("[chaos]")
     end
 
     should "raise the proper error when passed an invalid cost word" do

@@ -56,10 +56,10 @@ module Scapeshift
     ##
     # Converts a mana word into its representative cost symbol.
     #
-    # @example
+    # @example Blue
     #   Scapeshift::Card.cost_symbol_from_str "Blue"  # => "U"
     # 
-    # @example
+    # @example 3 Colorless
     #   Scapeshift::Card.cost_symbol_from_str "3"     # => "3"
     #
     # @param [String] str The String representation of the cost symbol
@@ -73,18 +73,19 @@ module Scapeshift
     #
     # @since 0.2.0
     #
-    # @todo Add support for Planechase plane symbols.
-    #
     def self.cost_symbol_from_str str
-      # If the input is simply a number, it's already
-      # a valid cost symbol.
-      return str if str =~ /[\d]+/
-
-      # "Variable Colorless" is the word representation
-      # of X costs.
-      return "X" if str == "Variable Colorless"
-
       case str
+      # If the input is simply a number, it's already a valid cost symbol.
+      when /[\d]+/
+        str
+      # The Chaos Planechase symbol. I don't actually know
+      # what the proper textual representation of this is.
+      when '[chaos]'
+        str
+      # "Variable Colorless" is the word representation of X costs.
+      when 'Variable Colorless'
+        'X'
+      # Normal colors
       when 'White'
         'W'
       when 'Red'
