@@ -14,7 +14,7 @@ module Scapeshift
       ## Hash of callback blocks
       @@callbacks = {}
 
-      ## Options hash. Keys will differ between crawlers.
+      ## @return [Hash] Options hash. Keys will differ between crawlers.
       attr_accessor :options
 
       ##
@@ -30,7 +30,7 @@ module Scapeshift
       #
       # @since 0.3.0
       #
-      def initialize opts = {}
+      def initialize(opts = {})
         if opts.empty?
           raise Scapeshift::Errors::InsufficientOptions.new "The options hash must not be null"
         end

@@ -22,10 +22,10 @@ module Scapeshift
       has_callback_hook :before_scrape
       has_callback_hook :after_scrape
 
-      ## The Nokogiri document representing the page
+      ## @return [Nokogiri::HTML::Document] The Nokogiri document representing the page
       attr_reader :doc
 
-      ## The SortedSet containing the scraped data
+      ## @return [SortedSet <String>] The SortedSet containing the scraped data
       attr_reader :meta
 
       ## The Oracle homepage, which is what we are scraping from
@@ -45,7 +45,7 @@ module Scapeshift
       #
       # @since 0.3.0
       #
-      def initialize opts = {}
+      def initialize(opts = {})
         super opts
 
         @meta = SortedSet.new
@@ -56,7 +56,8 @@ module Scapeshift
       end
 
       ##
-      # Scrapes the Oracle homepage for the specified data.
+      # Scrapes the Oracle homepage for the specified data. Overridden from
+      # {Base#crawl}.
       #
       # @return [SortedSet <String>] A SortedSet containing the data
       #

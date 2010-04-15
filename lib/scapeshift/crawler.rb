@@ -15,8 +15,9 @@ module Scapeshift
   # @example Scraping all the cards from the Shards of Alara block
   #   @cards = Scapeshift::Crawler.crawl :cards, :set => 'Shards of Alara'
   #
-  # @see Scapeshift::Crawlers::Sets
+  # @see Scapeshift::Crawlers::Meta
   # @see Scapeshift::Crawlers::Cards
+  # @see Scapeshift::Crawlers::Single
   #
   # @author Josh Lindsey
   #
@@ -31,6 +32,8 @@ module Scapeshift
     # @param [Symbol] type The type of crawl operation to perform
     # @param [Hash] opts Options to pass to Crawlers that support them.
     #   See the classes in {Scapeshift::Crawlers} for a list of options.
+    #
+    # @yield [Scapeshift::Crawlers::Base] The instantiated specified crawler.
     #
     # @return [Object] See the various {Crawlers} for return types on their crawl methods.
     #

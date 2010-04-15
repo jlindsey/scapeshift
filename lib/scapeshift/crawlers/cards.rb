@@ -36,13 +36,13 @@ module Scapeshift
       ## The search fragment if we're searching on Formats.
       Format_Search_Frag = '&format=["%s"]'
       
-      ## The Nokogiri document this instance is scraping
+      ## @return [Nokogiri::HTML::Document] The Nokogiri document this instance is scraping
       attr_reader :doc
 
-      ## The SortedSet of {Card} objects being built
+      ## @return [SortedSet <Scapeshift::Card>] The SortedSet of {Card} objects being built
       attr_reader :cards
 
-      ## The {Card} currently being built
+      ## @return [Scapeshift::Card] The {Card} currently being built
       attr_reader :current_card
 
       ##
@@ -61,7 +61,7 @@ module Scapeshift
       #
       # @since 0.3.0
       #
-      def initialize opts = {}
+      def initialize(opts = {})
         super opts
       
         @cards = SortedSet.new
@@ -73,9 +73,9 @@ module Scapeshift
 
       ##
       # Scrapes the Oracle Text Spoiler page for the specified set or block.
-      # Overridden from {Base}.
+      # Overridden from {Base#crawl}.
       #
-      # @return [Set <Card>] A Set containing the {Card} objects we've scraped
+      # @return [SortedSet <Card>] A Set containing the {Card} objects we've scraped
       #
       # @author Josh Lindsey
       #
@@ -101,6 +101,8 @@ module Scapeshift
         @current_card = nil
 
         rows.each do |row|
+          # The row between cards is just a `<td><br /></td>`,
+          # so when we see that we know the last card is finished.
           if row.children.length == 2
             self.hook :every_card, self.current_card
             @cards << @current_card

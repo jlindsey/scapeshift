@@ -23,45 +23,34 @@ module Scapeshift
     # List of possible Base Types a Card can have
     Base_Types = %w(Artifact Creature Enchantment Land Planeswalker Instant Sorcery Tribal Plane Vanguard)
 
-    ##
-    # The card name
+    ## @return [String] The card's name
     attr_accessor :name
 
-    ##
-    # The mana cost of the card, specified as a
-    # String in the form "2BR".
+    ## @return [String] The mana cost of the card, in the form "2BR"
     attr_accessor :cost
 
-    ##
-    # An array of the card's base types. 
-    # eg ["Artifact", "Creature"]
+    ## @return [Array] An array of the card's base types
     attr_accessor :base_types
 
-    ##
-    # An array of the card's subtypes.
-    # eg ["Human", "Wizard"]
+    ## @return [Array] An array of the card's subtypes.
     attr_accessor :subtypes
 
-    ##
-    # An array of the card's supertypes.
-    # eg ["Snow", "Legendary"]
+    ## @return [Array] An array of the card's supertypes.
     attr_accessor :supertypes
 
-    ## Attack power for creature cards
+    ## @return [String] Attack power for creature cards
     attr_accessor :pow
 
-    ## Toughness for creature cards
+    ## @return [String] Toughness for creature cards
     attr_accessor :tgh
 
-    ## The card's body text
+    ## @return [String] The card's body text
     attr_accessor :text
 
-    ##
-    # The sets and rarities of this card. A multidimensional array 
-    # of the form [[Set, Rarity]]
+    ## @return [Array [[Set, Rarity]]] The sets and rarities of this card. 
     attr_accessor :sets
 
-    ## The interpolated Image_URI string
+    ## @return [String] The interpolated Image_URI string
     attr_accessor :image_uri
     
     ##
@@ -83,6 +72,8 @@ module Scapeshift
     # @author Josh Lindsey
     #
     # @since 0.2.0
+    #
+    # @todo Add support for Planechase plane symbols.
     #
     def self.cost_symbol_from_str str
       # If the input is simply a number, it's already
@@ -274,7 +265,9 @@ module Scapeshift
     end
 
     ##
-    # Operator method to determine equality.
+    # Operator method to determine equality. Does an `==` comparison
+    # on each attribute of the Card objects. All must be equal
+    # for true.
     #
     # @param [Card] other_card The other Card to compare with
     #

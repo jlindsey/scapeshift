@@ -32,10 +32,10 @@ module Scapeshift
       ## with each word in the Card name.
       Card_Name_Frag = '+[%s]'
 
-      ## The {Card} object representing the scraped data
+      ## @return [Scapeshift::Card] The {Card} object representing the scraped data
       attr_reader :card
 
-      ## The Nokogiri document representing the card detail page
+      ## @return [Nokogiri::HTML::Document] The Nokogiri document representing the card detail page
       attr_reader :doc
 
       ##
@@ -52,7 +52,7 @@ module Scapeshift
       #
       # @since 0.3.0
       #
-      def initialize opts = {}
+      def initialize(opts = {})
         super opts
 
         @card = Scapeshift::Card.new
@@ -63,7 +63,8 @@ module Scapeshift
       end
 
       ##
-      # Scrapes the Oracle card detail page for the specified  card name.
+      # Scrapes the Oracle card detail page for the specified card name.
+      # Overrides the {Base#crawl} method.
       # 
       # @return [Scapeshift::Card] The Card containing the scraped data
       #
