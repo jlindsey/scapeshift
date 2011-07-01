@@ -91,6 +91,35 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "Aleksi Briclot", @card.artist
       end
     end
+
+    context "when a card with phyrexian mana is supplied" do
+      setup do
+        @card = Scapeshift::Crawler.crawl :single, :name => "Act of Aggression"
+      end
+
+      should "return a Card object" do
+        assert_instance_of Scapeshift::Card, @card
+      end
+
+      should "correclty set the mana cost" do
+        assert_equal "3RPRP", @card.cost
+      end
+
+      should "return the proper Card" do
+        assert_equal "Act of Aggression", @card.name
+        assert_equal "3RPRP", @card.cost
+        assert_equal "Instant", @card.types
+        assert_equal "( RP can be paid with either R or 2 life.)\nGain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.", @card.text
+        assert_equal "New Phyrexia", @card.set
+        assert_equal "Uncommon", @card.rarity
+        assert_equal [["New Phyrexia", "Uncommon"]], @card.sets
+        assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=230076&type=card", @card.image_uri
+        assert_equal nil, @card.pow
+        assert_equal nil, @card.tgh
+        assert_equal nil, @card.loyalty
+        assert_equal "Whit Brachna", @card.artist
+      end
+    end
   end
 end
 

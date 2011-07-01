@@ -105,6 +105,17 @@ module Scapeshift
         'B'
       when 'Green'
         'G'
+      # Phyrexian colors
+      when 'Phyrexian White'
+        'WP'
+      when 'Phyrexian Red'
+        'RP'
+      when 'Phyrexian Blue'
+        'UP'
+      when 'Phyrexian Black'
+        'BP'
+      when 'Phyrexian Green'
+        'GP'
       else
         raise Scapeshift::Errors::UnknownCostSymbol.new "Unrecognized cost '#{str}'"
       end
