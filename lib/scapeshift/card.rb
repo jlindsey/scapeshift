@@ -306,8 +306,12 @@ module Scapeshift
         self.cost == other_card.cost and
         self.sets == other_card.sets and
         self.image_uri == other_card.image_uri and
+        self.multiverse_id == other_card.multiverse_id and
         self.text == other_card.text and
-        self.types == other_card.types
+        self.flavour_text == other_card.flavour_text and
+        self.types == other_card.types and
+        self.loyalty == other_card.loyalty and
+        self.artist == other_card.artist
 
         return true
       end
