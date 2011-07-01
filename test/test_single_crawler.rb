@@ -57,6 +57,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "6", @card.pow
         assert_equal "6", @card.tgh
         assert_equal nil, @card.loyalty
+        assert_equal "Chippy", @card.artist
       end
     end
 
@@ -86,6 +87,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal nil, @card.pow
         assert_equal nil, @card.tgh
         assert_equal "3", @card.loyalty
+        assert_equal "Aleksi Briclot", @card.artist
       end
     end
   end

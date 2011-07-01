@@ -55,6 +55,9 @@ module Scapeshift
 
     ## @return [String] The loyalty for planeswalker cards
     attr_accessor :loyalty
+
+    ## @return [String] The card's artist name
+    attr_accessor :artist
     
     ##
     # Converts a mana word into its representative cost symbol.

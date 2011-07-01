@@ -110,6 +110,9 @@ module Scapeshift
         @card.loyalty = _parse_loyalty doc
         self.hook :every_attr, @card
 
+        @card.artist = _parse_artist doc
+        self.hook :every_attr, @card
+
         @card.image_uri_from_id = _parse_multiverse_id doc
         self.hook :every_attr, @card
 
@@ -263,6 +266,22 @@ module Scapeshift
         loyalty = loyalty_row./('div[2]').children.first.to_s.strip
         loyalty =~ /^([0-9]*)$/
         $1
+      end
+
+      ##
+      # Scrapes the name of the Artist of this card.
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The card's Artist
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_artist doc
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit')./('a').
+            children.first.to_s.strip
       end
 
       ##
