@@ -56,6 +56,36 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=193871&type=card", @card.image_uri
         assert_equal "6", @card.pow
         assert_equal "6", @card.tgh
+        assert_equal nil, @card.loyalty
+      end
+    end
+
+    context "when a planeswalker name is supplied" do
+      setup do
+        @card = Scapeshift::Crawler.crawl :single, :name => "Jace Beleren"
+      end
+
+      should "return a Card object" do
+        assert_instance_of Scapeshift::Card, @card
+      end
+
+      should "correclty set the loyalty" do
+        assert_equal "3", @card.loyalty
+      end
+
+      should "return the proper Card" do
+        assert_equal "Jace Beleren", @card.name
+        assert_equal "1UU", @card.cost
+        assert_equal "Planeswalker - Jace", @card.types
+        assert_equal "+2: Each player draws a card.\n-1: Target player draws a card.\n-10: Target player puts the top twenty cards of his or her library into his or her graveyard.", @card.text
+        assert_equal "Magic 2011", @card.set
+        assert_equal "Mythic Rare", @card.rarity
+        assert_equal [["Magic 2011", "Mythic Rare"], ["Magic 2010", "Mythic Rare"], ["Lorwyn", "Rare"],
+          ["Duel Decks: Jace vs. Chandra", "Mythic Rare"]], @card.sets
+        assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=205960&type=card", @card.image_uri
+        assert_equal nil, @card.pow
+        assert_equal nil, @card.tgh
+        assert_equal "3", @card.loyalty
       end
     end
   end

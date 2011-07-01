@@ -52,6 +52,38 @@ class TestCardCrawler < Test::Unit::TestCase
             assert_equal check_card, card
       end
     end
+
+    context "when looking in sets with planeswalkers" do
+      setup do
+        # Pull from a specific set instead of Type 2 so we don't have to
+        # keep updating this test when new blocks cycle in.
+        @cards = Scapeshift::Crawler.crawl :cards, :set => "Shards of Alara"
+      end
+
+      should "return a SortedSet of Card objects" do
+        assert_instance_of SortedSet, @cards
+        assert_instance_of Scapeshift::Card, @cards.to_a.first
+      end
+
+      should "pull from the correct set" do
+        check = Set.new %w(Ajani\ Vengeant Archdemon\ of\ Unx Mindlock\ Orb Prince\ of\ Thralls)
+        names = Set.new
+        @cards.each { |card| names << card.name }
+
+        assert check.proper_subset?(names)
+      end
+
+      should "have created the Card objects with the correct data" do
+        card = @cards.entries[0]
+
+        check_card = Scapeshift::Card.new :name => "Ad Nauseam",
+          :types => "Instant", :sets => [["Shards of Alara", "Rare"]],
+            :cost => "3BB", :text => "Reveal the top card of your library and put that card into your hand. You lose life equal to its converted mana cost. You may repeat this process any number of times.",
+            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=174915&type=card"
+
+            assert_equal check_card, card
+      end
+    end
   end
 end
 

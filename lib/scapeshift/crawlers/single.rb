@@ -107,6 +107,9 @@ module Scapeshift
         @card.pow_tgh = _parse_pow_tgh doc
         self.hook :every_attr, @card
 
+        @card.loyalty = _parse_loyalty doc
+        self.hook :every_attr, @card
+
         @card.image_uri_from_id = _parse_multiverse_id doc
         self.hook :every_attr, @card
 
@@ -239,6 +242,27 @@ module Scapeshift
         pt_str = pt_row./('div[2]').children.first.to_s.strip
         pt_str =~ /^(.*?) \/ (.*?)$/
         [$1, $2]
+      end
+
+      ##
+      # Scrapes the card's loyalty (if a planeswalker card).
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The card's loyalty
+      # @return [nil] If it's not a planeswalker
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_loyalty doc
+        loyalty_row = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ptRow')
+        return nil if loyalty_row.empty?
+
+        loyalty = loyalty_row./('div[2]').children.first.to_s.strip
+        loyalty =~ /^([0-9]*)$/
+        $1
       end
 
       ##

@@ -52,6 +52,9 @@ module Scapeshift
 
     ## @return [String] The interpolated Image_URI string
     attr_accessor :image_uri
+
+    ## @return [String] The loyalty for planeswalker cards
+    attr_accessor :loyalty
     
     ##
     # Converts a mana word into its representative cost symbol.
