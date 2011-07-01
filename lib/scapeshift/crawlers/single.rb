@@ -77,7 +77,7 @@ module Scapeshift
       # @since 0.2.0
       #
       def crawl
-        uri_str = Card_Name_Search_URI
+        uri_str = Card_Name_Search_URI.dup
         self.options[:name].split(' ').each { |word| uri_str << Card_Name_Frag % word }
 
         @doc = Nokogiri::HTML open(URI.escape uri_str)
