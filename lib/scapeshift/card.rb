@@ -1,3 +1,4 @@
+# encoding: utf-8
 module Scapeshift
 
   ##
@@ -26,6 +27,9 @@ module Scapeshift
     ## @return [String] The card's name
     attr_accessor :name
 
+    ## @return [String] The card's multiverse id (ie its id on the Gatherer website)
+    attr_accessor :multiverse_id
+
     ## @return [String] The mana cost of the card, in the form "2BR"
     attr_accessor :cost
 
@@ -47,11 +51,20 @@ module Scapeshift
     ## @return [String] The card's body text
     attr_accessor :text
 
+    ## @return [String] The card's flavour text
+    attr_accessor :flavour_text
+
     ## @return [Array [[Set, Rarity]]] The sets and rarities of this card. 
     attr_accessor :sets
 
     ## @return [String] The interpolated Image_URI string
     attr_accessor :image_uri
+
+    ## @return [String] The loyalty for planeswalker cards
+    attr_accessor :loyalty
+
+    ## @return [String] The card's artist name
+    attr_accessor :artist
     
     ##
     # Converts a mana word into its representative cost symbol.
@@ -96,6 +109,28 @@ module Scapeshift
         'B'
       when 'Green'
         'G'
+      # Two or colors
+      when 'Two or White'
+        '2/W'
+      when 'Two or Red'
+        '2/R'
+      when 'Two or Blue'
+        '2/U'
+      when 'Two or Black'
+        '2/B'
+      when 'Two or Green'
+        '2/G'
+      # Phyrexian colors
+      when 'Phyrexian White'
+        'WP'
+      when 'Phyrexian Red'
+        'RP'
+      when 'Phyrexian Blue'
+        'UP'
+      when 'Phyrexian Black'
+        'BP'
+      when 'Phyrexian Green'
+        'GP'
       else
         raise Scapeshift::Errors::UnknownCostSymbol.new "Unrecognized cost '#{str}'"
       end
@@ -162,9 +197,21 @@ module Scapeshift
       # From the Cards crawler
       if types_str.include? ' &mdash; ' 
         ary = _split_base_and_subtypes types_str, ' &mdash; '
-      # Also from the Cards crawler
-      elsif types_str.include? ' – '
-        ary = _split_base_and_subtypes types_str, ' – '
+      # Also from the Cards crawler: ' – '
+      elsif types_str.include? " \342\200\223 "
+        ary = _split_base_and_subtypes types_str, " \342\200\223 "
+      # Also from the Cards crawler: ' — '
+      elsif types_str.include? " \342\200\224 "
+        ary = _split_base_and_subtypes types_str, " \342\200\224 "
+
+      # Other possible dashes
+      # Not seen them on gatherer yet but including them for completion's sake
+      elsif types_str.include? " \357\271\230 "
+        ary = _split_base_and_subtypes types_str, " \357\271\230 "
+      elsif types_str.include? " \357\271\243 "
+        ary = _split_base_and_subtypes types_str, " \357\271\243 "
+      elsif types_str.include? " \357\274\215 "
+        ary = _split_base_and_subtypes types_str, " \357\274\215 "
 
       # From manual text input.
       # Note that this is a hyphen. Above is a dash (Alt + - in OS X).
@@ -283,8 +330,12 @@ module Scapeshift
         self.cost == other_card.cost and
         self.sets == other_card.sets and
         self.image_uri == other_card.image_uri and
+        self.multiverse_id == other_card.multiverse_id and
         self.text == other_card.text and
-        self.types == other_card.types
+        self.flavour_text == other_card.flavour_text and
+        self.types == other_card.types and
+        self.loyalty == other_card.loyalty and
+        self.artist == other_card.artist
 
         return true
       end

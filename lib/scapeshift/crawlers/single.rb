@@ -77,7 +77,7 @@ module Scapeshift
       # @since 0.2.0
       #
       def crawl
-        uri_str = Card_Name_Search_URI
+        uri_str = Card_Name_Search_URI.dup
         self.options[:name].split(' ').each { |word| uri_str << Card_Name_Frag % word }
 
         @doc = Nokogiri::HTML open(URI.escape uri_str)
@@ -101,13 +101,25 @@ module Scapeshift
         @card.text = _parse_text doc
         self.hook :every_attr, @card
 
+        @card.flavour_text = _parse_flavour_text doc
+        self.hook :every_attr, @card
+
         @card.sets = _parse_sets doc
         self.hook :every_attr, @card
 
         @card.pow_tgh = _parse_pow_tgh doc
         self.hook :every_attr, @card
 
-        @card.image_uri_from_id = _parse_multiverse_id doc
+        @card.loyalty = _parse_loyalty doc
+        self.hook :every_attr, @card
+
+        @card.artist = _parse_artist doc
+        self.hook :every_attr, @card
+
+        @card.multiverse_id = _parse_multiverse_id doc
+        self.hook :every_attr, @card
+
+        @card.image_uri_from_id = @card.multiverse_id
         self.hook :every_attr, @card
 
         self.hook :after_scrape, @card
@@ -185,6 +197,26 @@ module Scapeshift
       #
       # @since 0.2.0
       #
+      def _parse_flavour_text doc
+        flavour_text = ''
+        blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_FlavorText/div[@class=cardtextbox]')
+        _recursive_parse_text blocks, 0, nil, flavour_text
+        flavour_text.strip
+      end
+
+      ##
+      # Scrape the card's flavour text from the detail page.
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The flavour text
+      #
+      # @see #_recursive_parse_text
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
       def _parse_text doc
         text = ''
         blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow')./('div[2]/div[@class=cardtextbox]')
@@ -239,6 +271,43 @@ module Scapeshift
         pt_str = pt_row./('div[2]').children.first.to_s.strip
         pt_str =~ /^(.*?) \/ (.*?)$/
         [$1, $2]
+      end
+
+      ##
+      # Scrapes the card's loyalty (if a planeswalker card).
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The card's loyalty
+      # @return [nil] If it's not a planeswalker
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_loyalty doc
+        loyalty_row = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ptRow')
+        return nil if loyalty_row.empty?
+
+        loyalty = loyalty_row./('div[2]').children.first.to_s.strip
+        loyalty =~ /^([0-9]*)$/
+        $1
+      end
+
+      ##
+      # Scrapes the name of the Artist of this card.
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The card's Artist
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_artist doc
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit')./('a').
+            children.first.to_s.strip
       end
 
       ##
