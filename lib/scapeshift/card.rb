@@ -192,6 +192,15 @@ module Scapeshift
       elsif types_str.include? " \342\200\224 "
         ary = _split_base_and_subtypes types_str, " \342\200\224 "
 
+      # Other possible dashes
+      # Not seen them on gatherer yet but including them for completion's sake
+      elsif types_str.include? " \357\271\230 "
+        ary = _split_base_and_subtypes types_str, " \357\271\230 "
+      elsif types_str.include? " \357\271\243 "
+        ary = _split_base_and_subtypes types_str, " \357\271\243 "
+      elsif types_str.include? " \357\274\215 "
+        ary = _split_base_and_subtypes types_str, " \357\274\215 "
+
       # From manual text input.
       # Note that this is a hyphen. Above is a dash (Alt + - in OS X).
       elsif types_str.include? ' - '
