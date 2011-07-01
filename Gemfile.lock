@@ -1,68 +1,31 @@
---- 
-dependencies: 
-  bluecloth: 
-    group: 
-    - :default
-    version: ">= 0"
-  rake: 
-    group: 
-    - :default
-    version: ">= 0"
-  shoulda: 
-    group: 
-    - :default
-    version: ">= 0"
-  yard: 
-    group: 
-    - :default
-    version: ">= 0"
-  bundler: 
-    group: 
-    - :default
-    version: ">= 0"
-  jeweler: 
-    group: 
-    - :default
-    version: ">= 0"
-  nokogiri: 
-    group: 
-    - :default
-    version: ">= 0"
-  rdoc: 
-    group: 
-    - :default
-    version: ">= 0"
-specs: 
-- rake: 
-    version: 0.8.7
-- bluecloth: 
-    version: 2.0.7
-- bundler: 
-    version: 0.9.19
-- json_pure: 
-    version: 1.2.4
-- gemcutter: 
-    version: 0.5.0
-- git: 
-    version: 1.2.5
-- rubyforge: 
-    version: 2.0.4
-- jeweler: 
-    version: 1.4.0
-- nokogiri: 
-    version: 1.4.1
-- rdoc: 
-    version: 2.5.3
-- shoulda: 
-    version: 2.10.3
-- yard: 
-    version: 0.5.4
-    source: 0
-hash: 675dfdb8538ed9f906299edf9fc37e176c396f53
-sources: 
-- Git: 
-    uri: git://github.com/lsegal/yard.git
-    git: git://github.com/lsegal/yard.git
-    ref: 897bb4a987d1ffb44a5fcf25348007b9a7755f4e
-- Rubygems: 
-    uri: http://gemcutter.org
+GEM
+  remote: http://rubygems.org/
+  specs:
+    bluecloth (2.0.7)
+    gemcutter (0.7.0)
+    git (1.2.5)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.5.3)
+    nokogiri (1.4.1)
+    rake (0.8.7)
+    rdoc (2.5.3)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    shoulda (2.10.3)
+    yard (0.5.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bluecloth (= 2.0.7)
+  bundler
+  jeweler (= 1.4.0)
+  nokogiri (= 1.4.1)
+  rake (= 0.8.7)
+  rdoc (= 2.5.3)
+  shoulda (= 2.10.3)
+  yard (= 0.5.4)
