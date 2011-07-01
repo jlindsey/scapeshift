@@ -109,6 +109,17 @@ module Scapeshift
         'B'
       when 'Green'
         'G'
+      # Two or colors
+      when 'Two or White'
+        '2/W'
+      when 'Two or Red'
+        '2/R'
+      when 'Two or Blue'
+        '2/U'
+      when 'Two or Black'
+        '2/B'
+      when 'Two or Green'
+        '2/G'
       # Phyrexian colors
       when 'Phyrexian White'
         'WP'

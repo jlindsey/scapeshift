@@ -94,6 +94,36 @@ class TestSingleCrawler < Test::Unit::TestCase
       end
     end
 
+    context "when a card with two or color mana is supplied" do
+      setup do
+        @card = Scapeshift::Crawler.crawl :single, :name => "Beseech the Queen"
+      end
+
+      should "return a Card object" do
+        assert_instance_of Scapeshift::Card, @card
+      end
+
+      should "correclty set the mana cost" do
+        assert_equal "2/B2/B2/B", @card.cost
+      end
+
+      should "return the proper Card" do
+        assert_equal "Beseech the Queen", @card.name
+        assert_equal "2/B2/B2/B", @card.cost
+        assert_equal "Sorcery", @card.types
+        assert_equal "( 2/B can be paid with any two mana or with B . This card's converted mana cost is 6.)\nSearch your library for a card with converted mana cost less than or equal to the number of lands you control, reveal it, and put it into your hand. Then shuffle your library.", @card.text
+        assert_equal "Planechase", @card.set
+        assert_equal "Uncommon", @card.rarity
+        assert_equal [["Planechase", "Uncommon"], ["Shadowmoor", "Uncommon"]], @card.sets
+        assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=205399&type=card", @card.image_uri
+        assert_equal "205399", @card.multiverse_id
+        assert_equal nil, @card.pow
+        assert_equal nil, @card.tgh
+        assert_equal nil, @card.loyalty
+        assert_equal "Jason Chan", @card.artist
+      end
+    end
+
     context "when a card with phyrexian mana is supplied" do
       setup do
         @card = Scapeshift::Crawler.crawl :single, :name => "Act of Aggression"
