@@ -1,31 +1,27 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    bluecloth (2.0.7)
-    gemcutter (0.7.0)
+    bluecloth (2.1.0)
     git (1.2.5)
-    jeweler (1.4.0)
-      gemcutter (>= 0.1.0)
+    jeweler (1.6.2)
+      bundler (~> 1.0)
       git (>= 1.2.5)
-      rubyforge (>= 2.0.0)
-    json_pure (1.5.3)
-    nokogiri (1.4.1)
-    rake (0.8.7)
-    rdoc (2.5.3)
-    rubyforge (2.0.4)
-      json_pure (>= 1.1.7)
-    shoulda (2.10.3)
-    yard (0.5.4)
+      rake
+    nokogiri (1.5.0)
+    rake (0.9.2)
+    rdoc (3.8)
+    shoulda (2.11.3)
+    yard (0.7.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bluecloth (= 2.0.7)
+  bluecloth
   bundler
-  jeweler (= 1.4.0)
-  nokogiri (= 1.4.1)
-  rake (= 0.8.7)
-  rdoc (= 2.5.3)
-  shoulda (= 2.10.3)
-  yard (= 0.5.4)
+  jeweler
+  nokogiri
+  rake
+  rdoc
+  shoulda
+  yard
