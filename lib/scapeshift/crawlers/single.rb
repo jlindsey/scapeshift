@@ -101,6 +101,9 @@ module Scapeshift
         @card.text = _parse_text doc
         self.hook :every_attr, @card
 
+        @card.flavour_text = _parse_flavour_text doc
+        self.hook :every_attr, @card
+
         @card.sets = _parse_sets doc
         self.hook :every_attr, @card
 
@@ -190,6 +193,26 @@ module Scapeshift
       # @author Josh Lindsey
       #
       # @since 0.2.0
+      #
+      def _parse_flavour_text doc
+        flavour_text = ''
+        blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_FlavorText/div[@class=cardtextbox]')
+        _recursive_parse_text blocks, 0, nil, flavour_text
+        flavour_text.strip
+      end
+
+      ##
+      # Scrape the card's flavour text from the detail page.
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The flavour text
+      #
+      # @see #_recursive_parse_text
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
       #
       def _parse_text doc
         text = ''

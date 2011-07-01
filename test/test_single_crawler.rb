@@ -49,6 +49,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "5WWW", @card.cost
         assert_equal "Legendary Creature - Angel", @card.types
         assert_equal "Flying, first strike, vigilance, trample, haste, protection from black and from red", @card.text
+        assert_equal "\"Wrath is no vice when inflicted upon the deserving.\"", @card.flavour_text
         assert_equal "Duel Decks: Divine vs. Demonic", @card.set
         assert_equal "Mythic Rare", @card.rarity
         assert_equal [["Duel Decks: Divine vs. Demonic", "Mythic Rare"], ["Legions", "Rare"], 

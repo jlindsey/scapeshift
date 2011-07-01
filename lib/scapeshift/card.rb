@@ -47,6 +47,9 @@ module Scapeshift
     ## @return [String] The card's body text
     attr_accessor :text
 
+    ## @return [String] The card's flavour text
+    attr_accessor :flavour_text
+
     ## @return [Array [[Set, Rarity]]] The sets and rarities of this card. 
     attr_accessor :sets
 
