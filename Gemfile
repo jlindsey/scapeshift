@@ -6,7 +6,7 @@ gem 'bundler'
 gem 'rake'
 gem 'jeweler'
 gem 'rdoc'
-gem 'yard', :git => 'git://github.com/lsegal/yard.git'
+gem 'yard'
 gem 'bluecloth'
 gem 'shoulda'
 

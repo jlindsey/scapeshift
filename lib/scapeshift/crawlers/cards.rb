@@ -138,7 +138,8 @@ module Scapeshift
         case _row_type(row)
         when :name
           @current_card.name = _parse_name row
-          @current_card.image_uri_from_id = _parse_image_uri row
+          @current_card.multiverse_id = _parse_image_uri row
+          @current_card.image_uri_from_id = @current_card.multiverse_id
         when :cost
           @current_card.cost = _parse_cost row
         when :type
@@ -149,6 +150,8 @@ module Scapeshift
           @current_card.text = _parse_rules_text row
         when :'set/rarity'
           @current_card.sets = _parse_set_rarity row
+        when :loyalty
+          @current_card.loyalty = _parse_loyalty row
         else
           raise Scapeshift::Errors::UnknownCardAttribute.new "Unable to parse attribute: '#{_row_type(row)}'"
         end
@@ -306,6 +309,21 @@ module Scapeshift
         end
 
         ret_ary
+      end
+
+      ##
+      # Parses the loyalty of a planeswalker card.
+      #
+      # @param [Nokogiri::XML::NodeSet] row The NodeSet containing the loyalty
+      #
+      # @return [String] The loyalty of the planeswalker card
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_loyalty row
+        row./('td[2]').children.first.to_s.strip[1..-2]
       end
     end
   end
