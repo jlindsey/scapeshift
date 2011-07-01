@@ -41,7 +41,7 @@ class TestCardCrawler < Test::Unit::TestCase
         #
         # Also, Set and SortedSet don't implement #first or #last.
         # Which is why we're doing this little hack.
-        card = @cards.entries[@cards.size - 1]
+        card = @cards.entries[@cards.size - 3]
 
         check_card = Scapeshift::Card.new :name => "Wurm's Tooth",
           :types => "Artifact", :sets => [["Magic 2011", "Uncommon"], ["Magic 2010", "Uncommon"],
