@@ -185,9 +185,9 @@ module Scapeshift
       # From the Cards crawler
       if types_str.include? ' &mdash; ' 
         ary = _split_base_and_subtypes types_str, ' &mdash; '
-      # Also from the Cards crawler
-      elsif types_str.include? ' – '
-        ary = _split_base_and_subtypes types_str, ' – '
+      # Also from the Cards crawler: ' – '
+      elsif types_str.include? " \342\200\223 "
+        ary = _split_base_and_subtypes types_str, " \342\200\223 "
 
       # From manual text input.
       # Note that this is a hyphen. Above is a dash (Alt + - in OS X).
