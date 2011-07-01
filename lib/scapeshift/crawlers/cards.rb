@@ -138,7 +138,8 @@ module Scapeshift
         case _row_type(row)
         when :name
           @current_card.name = _parse_name row
-          @current_card.image_uri_from_id = _parse_image_uri row
+          @current_card.multiverse_id = _parse_image_uri row
+          @current_card.image_uri_from_id = @current_card.multiverse_id
         when :cost
           @current_card.cost = _parse_cost row
         when :type

@@ -26,6 +26,9 @@ module Scapeshift
     ## @return [String] The card's name
     attr_accessor :name
 
+    ## @return [String] The card's multiverse id (ie its id on the Gatherer website)
+    attr_accessor :multiverse_id
+
     ## @return [String] The mana cost of the card, in the form "2BR"
     attr_accessor :cost
 

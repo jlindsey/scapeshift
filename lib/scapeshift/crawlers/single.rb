@@ -116,7 +116,10 @@ module Scapeshift
         @card.artist = _parse_artist doc
         self.hook :every_attr, @card
 
-        @card.image_uri_from_id = _parse_multiverse_id doc
+        @card.multiverse_id = _parse_multiverse_id doc
+        self.hook :every_attr, @card
+
+        @card.image_uri_from_id = @card.multiverse_id
         self.hook :every_attr, @card
 
         self.hook :after_scrape, @card

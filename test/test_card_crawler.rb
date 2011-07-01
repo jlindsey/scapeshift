@@ -47,7 +47,8 @@ class TestCardCrawler < Test::Unit::TestCase
           :types => "Artifact", :sets => [["Magic 2011", "Uncommon"], ["Magic 2010", "Uncommon"],
             ["Tenth Edition", "Uncommon"], ["Ninth Edition", "Uncommon"], ["Darksteel", "Uncommon"]],
             :cost => "2", :text => "Whenever a player casts a green spell, you may gain 1 life.",
-            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=72684&type=card"
+            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=72684&type=card",
+            :multiverse_id => "72684"
 
             assert_equal check_card, card
       end
@@ -79,7 +80,8 @@ class TestCardCrawler < Test::Unit::TestCase
         check_card = Scapeshift::Card.new :name => "Ad Nauseam",
           :types => "Instant", :sets => [["Shards of Alara", "Rare"]],
             :cost => "3BB", :text => "Reveal the top card of your library and put that card into your hand. You lose life equal to its converted mana cost. You may repeat this process any number of times.",
-            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=174915&type=card"
+            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=174915&type=card",
+            :multiverse_id => "174915"
 
             assert_equal check_card, card
       end

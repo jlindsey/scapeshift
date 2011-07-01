@@ -55,6 +55,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal [["Duel Decks: Divine vs. Demonic", "Mythic Rare"], ["Legions", "Rare"], 
           ['Time Spiral "Timeshifted"', "Special"]], @card.sets
         assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=193871&type=card", @card.image_uri
+        assert_equal "193871", @card.multiverse_id
         assert_equal "6", @card.pow
         assert_equal "6", @card.tgh
         assert_equal nil, @card.loyalty
@@ -85,6 +86,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal [["Magic 2011", "Mythic Rare"], ["Magic 2010", "Mythic Rare"], ["Lorwyn", "Rare"],
           ["Duel Decks: Jace vs. Chandra", "Mythic Rare"]], @card.sets
         assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=205960&type=card", @card.image_uri
+        assert_equal "205960", @card.multiverse_id
         assert_equal nil, @card.pow
         assert_equal nil, @card.tgh
         assert_equal "3", @card.loyalty
@@ -114,6 +116,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "Uncommon", @card.rarity
         assert_equal [["New Phyrexia", "Uncommon"]], @card.sets
         assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=230076&type=card", @card.image_uri
+        assert_equal "230076", @card.multiverse_id
         assert_equal nil, @card.pow
         assert_equal nil, @card.tgh
         assert_equal nil, @card.loyalty
