@@ -104,14 +104,14 @@ class TestSingleCrawler < Test::Unit::TestCase
       end
 
       should "correclty set the mana cost" do
-        assert_equal "2/B2/B2/B", @card.cost
+        assert_equal "(2/B)(2/B)(2/B)", @card.cost
       end
 
       should "return the proper Card" do
         assert_equal "Beseech the Queen", @card.name
-        assert_equal "2/B2/B2/B", @card.cost
+        assert_equal "(2/B)(2/B)(2/B)", @card.cost
         assert_equal "Sorcery", @card.types
-        assert_equal "( 2/B can be paid with any two mana or with B . This card's converted mana cost is 6.)\nSearch your library for a card with converted mana cost less than or equal to the number of lands you control, reveal it, and put it into your hand. Then shuffle your library.", @card.text
+        assert_equal "( (2/B) can be paid with any two mana or with B . This card's converted mana cost is 6.)\nSearch your library for a card with converted mana cost less than or equal to the number of lands you control, reveal it, and put it into your hand. Then shuffle your library.", @card.text
         assert_equal "Planechase", @card.set
         assert_equal "Uncommon", @card.rarity
         assert_equal [["Planechase", "Uncommon"], ["Shadowmoor", "Uncommon"]], @card.sets
@@ -134,14 +134,14 @@ class TestSingleCrawler < Test::Unit::TestCase
       end
 
       should "correclty set the mana cost" do
-        assert_equal "3RPRP", @card.cost
+        assert_equal "3(R/P)(R/P)", @card.cost
       end
 
       should "return the proper Card" do
         assert_equal "Act of Aggression", @card.name
-        assert_equal "3RPRP", @card.cost
+        assert_equal "3(R/P)(R/P)", @card.cost
         assert_equal "Instant", @card.types
-        assert_equal "( RP can be paid with either R or 2 life.)\nGain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.", @card.text
+        assert_equal "( (R/P) can be paid with either R or 2 life.)\nGain control of target creature an opponent controls until end of turn. Untap that creature. It gains haste until end of turn.", @card.text
         assert_equal "New Phyrexia", @card.set
         assert_equal "Uncommon", @card.rarity
         assert_equal [["New Phyrexia", "Uncommon"]], @card.sets
