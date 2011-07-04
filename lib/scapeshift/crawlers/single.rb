@@ -24,6 +24,8 @@ module Scapeshift
       has_callback_hook :after_scrape
       has_callback_hook :every_attr
 
+      ## The details page for cards by multiverse id. Joined with a card's multiverse id.
+      Card_Multiverse_ID_Search_URI = 'http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid='
 
       ## The base search page for card names. Joined to {Card_Name_Frag}.
       Card_Name_Search_URI = 'http://gatherer.wizards.com/Pages/Search/Default.aspx?name='
@@ -57,8 +59,8 @@ module Scapeshift
 
         @card = Scapeshift::Card.new
 
-        if self.options[:name].nil?
-          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed :name"
+        if self.options[:name].nil? and self.options[:multiverse_id].nil?
+          raise Scapeshift::Errors::InsufficientOptions.new "This crawler MUST be passed one of :name or :multiverse_id"
         end
       end
 
@@ -77,7 +79,11 @@ module Scapeshift
       # @since 0.2.0
       #
       def crawl
-        uri_str = self.options[:name].split(' ').inject(Card_Name_Search_URI) { |memo, word| memo + (Card_Name_Frag % word) }
+        uri_str = if not self.options[:multiverse_id].nil?
+                    Card_Multiverse_ID_Search_URI + self.options[:multiverse_id].to_s
+                  elsif not self.options[:name].nil?
+                    self.options[:name].split(' ').inject(Card_Name_Search_URI) { |memo, word| memo + (Card_Name_Frag % word) }
+                  end
 
         @doc = Nokogiri::HTML open(URI.escape uri_str)
 
