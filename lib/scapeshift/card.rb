@@ -131,6 +131,9 @@ module Scapeshift
         'BP'
       when 'Phyrexian Green'
         'GP'
+      # Tap
+      when 'Tap'
+        'T'
       else
         raise Scapeshift::Errors::UnknownCostSymbol.new "Unrecognized cost '#{str}'"
       end
