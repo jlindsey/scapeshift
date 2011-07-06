@@ -152,6 +152,9 @@ module Scapeshift
         '(U/B)'
       when 'Blue or Red'
         '(U/R)'
+      # Snow
+      when 'Snow'
+        'S}i'
       # Tap
       when 'Tap'
         'T'

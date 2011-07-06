@@ -153,6 +153,32 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "Whit Brachna", @card.artist
       end
     end
+
+    context "when a card with snow mana is supplied" do
+      setup do
+        @card = Scapeshift::Crawler.crawl :single, :name => "Adarkar Windform"
+      end
+
+      should "return a Card object" do
+        assert_instance_of Scapeshift::Card, @card
+      end
+
+      should "return the proper Card" do
+        assert_equal "Adarkar Windform", @card.name
+        assert_equal "4U", @card.cost
+        assert_equal "Snow Creature - Illusion", @card.types
+        assert_equal "Flying\n 1S}i : Target creature loses flying until end of turn.( S}i can be paid with one mana from a snow permanent.)", @card.text
+        assert_equal "Coldsnap", @card.set
+        assert_equal "Uncommon", @card.rarity
+        assert_equal [["Coldsnap", "Uncommon"]], @card.sets
+        assert_equal "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=121268&type=card", @card.image_uri
+        assert_equal "121268", @card.multiverse_id
+        assert_equal "3", @card.pow
+        assert_equal "3", @card.tgh
+        assert_equal nil, @card.loyalty
+        assert_equal "Randy Gallegos", @card.artist
+      end
+    end
   end
 end
 
