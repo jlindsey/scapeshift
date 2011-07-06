@@ -146,7 +146,7 @@ module Scapeshift
       # @since 0.2.0
       #
       def _parse_name doc
-        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameRow')./('div[2]').
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameRow/div[2]').
           children.first.to_s.strip
       end
       
@@ -166,7 +166,7 @@ module Scapeshift
       #
       def _parse_cost doc
         str = ''
-        costs = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manaRow')./('div[2]/img')
+        costs = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manaRow/div[2]/img')
         costs.each { |cost| str << Scapeshift::Card.cost_symbol_from_str(cost['alt']) }
         str
       end
@@ -185,7 +185,7 @@ module Scapeshift
       # @since 0.2.0
       #
       def _parse_types doc
-        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeRow')./('div[2]').
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeRow/div[2]').
           children.first.to_s.strip
       end
 
@@ -224,7 +224,7 @@ module Scapeshift
       #
       def _parse_text doc
         text = ''
-        blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow')./('div[2]/div[@class=cardtextbox]')
+        blocks = doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow/div[2]/div[@class=cardtextbox]')
         _recursive_parse_text blocks, 0, nil, text
         text.strip
       end
@@ -311,7 +311,7 @@ module Scapeshift
       # @since 1.0.1
       #
       def _parse_artist doc
-        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit')./('a').
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit/a').
             children.first.to_s.strip
       end
 
