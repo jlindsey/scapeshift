@@ -158,6 +158,9 @@ module Scapeshift
       # Tap
       when 'Tap'
         'T'
+      # Untap
+      when 'Untap'
+        'Q'
       else
         raise Scapeshift::Errors::UnknownCostSymbol.new "Unrecognized cost '#{str}'"
       end
