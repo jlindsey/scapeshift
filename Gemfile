@@ -1,4 +1,4 @@
-source :gemcutter
+source :rubygems
 
 gem 'bundler'
 
@@ -9,6 +9,9 @@ gem 'rdoc'
 gem 'yard'
 gem 'bluecloth'
 gem 'shoulda'
+
+# Test dependencies
+gem 'fakeweb'
 
 # Runtime dependencies
 gem 'nokogiri'
