@@ -127,6 +127,9 @@ module Scapeshift
         @card.image_uri_from_id = @card.multiverse_id
         self.hook :every_attr, @card
 
+        @card.number = _parse_number doc
+        self.hook :every_attr, @card
+
         self.hook :after_scrape, @card
 
         @card
@@ -331,6 +334,22 @@ module Scapeshift
         src = doc.css('img#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardImage').first['src']
         src =~ /multiverseid=(.*?)&/
         $1
+      end
+
+      ##
+      # Scapes the card number of this card.
+      #
+      # @param [Nokogiri::HTML::Document] doc The detail page document
+      #
+      # @return [String] The mutliverse ID of this card
+      #
+      # @author Eric Cohen
+      #
+      # @since 1.0.1
+      #
+      def _parse_number doc
+        doc.css('div#ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_numberRow .value').
+            children.first.to_s.strip
       end
 
       ##

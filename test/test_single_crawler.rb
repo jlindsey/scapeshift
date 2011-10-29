@@ -60,6 +60,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "6", @card.tgh
         assert_equal nil, @card.loyalty
         assert_equal "Chippy", @card.artist
+        assert_equal "1", @card.number
       end
     end
 
@@ -91,6 +92,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal nil, @card.tgh
         assert_equal "3", @card.loyalty
         assert_equal "Aleksi Briclot", @card.artist
+        assert_equal "58", @card.number
       end
     end
 
@@ -121,6 +123,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal nil, @card.tgh
         assert_equal nil, @card.loyalty
         assert_equal "Jason Chan", @card.artist
+        assert_equal "19", @card.number
       end
     end
 
@@ -151,6 +154,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal nil, @card.tgh
         assert_equal nil, @card.loyalty
         assert_equal "Whit Brachna", @card.artist
+        assert_equal "78", @card.number
       end
     end
 
@@ -177,6 +181,7 @@ class TestSingleCrawler < Test::Unit::TestCase
         assert_equal "3", @card.tgh
         assert_equal nil, @card.loyalty
         assert_equal "Randy Gallegos", @card.artist
+        assert_equal "26", @card.number
       end
     end
   end
