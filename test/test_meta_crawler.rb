@@ -36,6 +36,12 @@ class TestMetaCrawler < Test::Unit::TestCase
         check = Set.new %w{Darksteel Coldsnap Zendikar Shadowmoor Lorwyn Nemesis Onslaught}
         assert check.proper_subset?(@sets)
       end
+
+      should "not contain empty sets" do
+        @sets.each do |set|
+          assert !set.empty?
+        end
+      end
     end
 
     context "when crawling Formats" do

@@ -65,6 +65,9 @@ module Scapeshift
 
     ## @return [String] The card's artist name
     attr_accessor :artist
+
+    ## @return [String] The card's number
+    attr_accessor :number
     
     ##
     # Converts a mana word into its representative cost symbol.
@@ -365,7 +368,8 @@ module Scapeshift
         self.flavour_text == other_card.flavour_text and
         self.types == other_card.types and
         self.loyalty == other_card.loyalty and
-        self.artist == other_card.artist
+        self.artist == other_card.artist and
+        self.number == other_card.number
 
         return true
       end

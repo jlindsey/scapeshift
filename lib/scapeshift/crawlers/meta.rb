@@ -101,7 +101,7 @@ module Scapeshift
       #
       def _scrape_sets doc
         sets = doc.css 'select#ctl00_ctl00_MainContent_Content_SearchControls_setAddText'
-        sets.children.each { |set| @meta << set['value'] } 
+        sets.children.each { |set| @meta << set['value'] unless set['value'].empty? }
       end
       
       ##
