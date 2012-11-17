@@ -257,6 +257,8 @@ module Scapeshift
           sets_ary << [$1, $2]
         end
 
+        sets_ary.uniq!
+
         sets_ary
       end
 
