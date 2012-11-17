@@ -10,9 +10,6 @@ gem 'yard'
 gem 'bluecloth'
 gem 'shoulda'
 
-# Test dependencies
-gem 'fakeweb'
-
 # Runtime dependencies
 gem 'nokogiri'
 

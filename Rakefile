@@ -55,10 +55,3 @@ desc "Searches for all @todo tags and prints them"
 task :todos do
   puts %x{grep -inr "@todo" lib/}
 end
-
-namespace :fakeweb do
-  task :update do
-    require 'test/fakeweb_helper'
-    FakeWebHelper.cache_all_urls
-  end
-end
