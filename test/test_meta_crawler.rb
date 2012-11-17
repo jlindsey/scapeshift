@@ -18,14 +18,18 @@ class TestMetaCrawler < Test::Unit::TestCase
       should "raise the appropiate exception" do
         assert_raise Scapeshift::Errors::UnknownMetaType do
           crawler = Scapeshift::Crawlers::Meta.new :type => :not_a_real_type
-          crawler.crawl
+          VCR.use_cassette 'meta' do
+            crawler.crawl
+          end
         end
       end
     end
 
     context "when crawling expansion Sets" do
       setup do
-        @sets = Scapeshift::Crawler.crawl :meta, :type => :sets
+        VCR.use_cassette 'meta' do
+          @sets = Scapeshift::Crawler.crawl :meta, :type => :sets
+        end
       end
 
       should "return a SortedSet" do
@@ -46,7 +50,9 @@ class TestMetaCrawler < Test::Unit::TestCase
 
     context "when crawling Formats" do
       setup do
-        @formats = Scapeshift::Crawler.crawl :meta, :type => :formats
+        VCR.use_cassette 'meta' do
+          @formats = Scapeshift::Crawler.crawl :meta, :type => :formats
+        end
       end
 
       should "return a SortedSet" do
@@ -61,7 +67,9 @@ class TestMetaCrawler < Test::Unit::TestCase
 
     context "when crawling Card Types" do
       setup do
-        @types = Scapeshift::Crawler.crawl :meta, :type => :types
+        VCR.use_cassette 'meta' do
+          @types = Scapeshift::Crawler.crawl :meta, :type => :types
+        end
       end
 
       should "return a SortedSet" do

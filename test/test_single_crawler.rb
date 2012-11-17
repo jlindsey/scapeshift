@@ -19,7 +19,9 @@ class TestSingleCrawler < Test::Unit::TestCase
       should "raise the proper exception" do
         assert_raise Scapeshift::Errors::CardNameAmbiguousOrNotFound do
           crawler = Scapeshift::Crawlers::Single.new :name => "vial"
-          crawler.crawl
+          VCR.use_cassette 'single/vial' do
+            crawler.crawl
+          end
         end
       end
     end
@@ -30,14 +32,18 @@ class TestSingleCrawler < Test::Unit::TestCase
           # Vulgar, but we can be assured that this search
           # will always be empty.
           crawler = Scapeshift::Crawlers::Single.new :name => "fuck"
-          crawler.crawl
+          VCR.use_cassette 'single/fuck' do
+            crawler.crawl
+          end
         end
       end
     end
 
     context "when a valid name is supplied" do
       setup do
-        @card = Scapeshift::Crawler.crawl :single, :name => "Akroma, Angel of Wrath"
+        VCR.use_cassette 'single/Akroma, Angel of Wrath' do
+          @card = Scapeshift::Crawler.crawl :single, :name => "Akroma, Angel of Wrath"
+        end
       end
 
       should "return a Card object" do
@@ -66,7 +72,9 @@ class TestSingleCrawler < Test::Unit::TestCase
 
     context "when a planeswalker name is supplied" do
       setup do
-        @card = Scapeshift::Crawler.crawl :single, :name => "Jace Beleren"
+        VCR.use_cassette 'single/Jace Beleren' do
+          @card = Scapeshift::Crawler.crawl :single, :name => "Jace Beleren"
+        end
       end
 
       should "return a Card object" do
@@ -98,7 +106,9 @@ class TestSingleCrawler < Test::Unit::TestCase
 
     context "when a card with two or color mana is supplied" do
       setup do
-        @card = Scapeshift::Crawler.crawl :single, :name => "Beseech the Queen"
+        VCR.use_cassette 'single/Beseech the Queen' do
+          @card = Scapeshift::Crawler.crawl :single, :name => "Beseech the Queen"
+        end
       end
 
       should "return a Card object" do
@@ -129,7 +139,9 @@ class TestSingleCrawler < Test::Unit::TestCase
 
     context "when a card with phyrexian mana is supplied" do
       setup do
-        @card = Scapeshift::Crawler.crawl :single, :name => "Act of Aggression"
+        VCR.use_cassette 'single/Act of Aggression' do
+          @card = Scapeshift::Crawler.crawl :single, :name => "Act of Aggression"
+        end
       end
 
       should "return a Card object" do
@@ -160,7 +172,9 @@ class TestSingleCrawler < Test::Unit::TestCase
 
     context "when a card with snow mana is supplied" do
       setup do
-        @card = Scapeshift::Crawler.crawl :single, :name => "Adarkar Windform"
+        VCR.use_cassette 'single/Adarkar Windform' do
+          @card = Scapeshift::Crawler.crawl :single, :name => "Adarkar Windform"
+        end
       end
 
       should "return a Card object" do

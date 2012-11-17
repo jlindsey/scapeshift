@@ -19,7 +19,9 @@ class TestCardCrawler < Test::Unit::TestCase
       setup do
         # Pull from a specific set instead of Type 2 so we don't have to 
         # keep updating this test when new blocks cycle in.
-        @cards = Scapeshift::Crawler.crawl :cards, :set => "Darksteel"
+        VCR.use_cassette 'cards/Darksteel' do
+          @cards = Scapeshift::Crawler.crawl :cards, :set => "Darksteel"
+        end
       end
       
       should "return a SortedSet of Card objects" do
@@ -59,7 +61,9 @@ class TestCardCrawler < Test::Unit::TestCase
       setup do
         # Pull from a specific set instead of Type 2 so we don't have to
         # keep updating this test when new blocks cycle in.
-        @cards = Scapeshift::Crawler.crawl :cards, :set => "Shards of Alara"
+        VCR.use_cassette 'cards/Shards of Alara' do
+          @cards = Scapeshift::Crawler.crawl :cards, :set => "Shards of Alara"
+        end
       end
 
       should "return a SortedSet of Card objects" do

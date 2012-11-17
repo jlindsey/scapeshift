@@ -9,6 +9,7 @@ gem 'rdoc'
 gem 'yard'
 gem 'bluecloth'
 gem 'shoulda'
+gem 'vcr'
 
 # Runtime dependencies
 gem 'nokogiri'
