@@ -87,6 +87,41 @@ class TestCardCrawler < Test::Unit::TestCase
             assert_equal check_card, card
       end
     end
+
+    context "when looking in sets with cards with ambiguous colors" do
+      setup do
+        # Pull from a specific set instead of Type 2 so we don't have to
+        # keep updating this test when new blocks cycle in.
+        VCR.use_cassette 'cards/Innistrad' do
+          @cards = Scapeshift::Crawler.crawl :cards, :set => "Innistrad"
+        end
+      end
+
+      should "return a SortedSet of Card objects" do
+        assert_instance_of SortedSet, @cards
+        assert_instance_of Scapeshift::Card, @cards.to_a.first
+      end
+
+      should "pull from the correct set" do
+        check = Set.new %w(Dead\ Weight Garruk,\ the\ Veil-Cursed)
+        names = Set.new
+        @cards.each { |card| names << card.name }
+
+        assert check.proper_subset?(names)
+      end
+
+      should "have created the Card objects with the correct data" do
+        card = @cards.entries[0]
+
+        check_card = Scapeshift::Card.new :name => "Abattoir Ghoul",
+          :types => "Creature - Zombie", :pow => "3", :tgh => "2", :sets => [["Innistrad", "Uncommon"]],
+            :cost => "3B", :text => "First strike\nWhenever a creature dealt damage by Abattoir Ghoul this turn dies, you gain life equal to that creature's toughness.",
+            :image_uri => "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=222911&type=card",
+            :multiverse_id => "222911"
+
+            assert_equal check_card, card
+      end
+    end
   end
 end
 

@@ -152,6 +152,8 @@ module Scapeshift
           @current_card.sets = _parse_set_rarity row
         when :loyalty
           @current_card.loyalty = _parse_loyalty row
+        when :color
+          # Ignore as this should be deductible from mana cost and/or card text
         else
           raise Scapeshift::Errors::UnknownCardAttribute.new "Unable to parse attribute: '#{_row_type(row)}'"
         end
