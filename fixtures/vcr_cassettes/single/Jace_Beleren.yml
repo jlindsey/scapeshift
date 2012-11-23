@@ -1,0 +1,316 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://gatherer.wizards.com/Pages/Search/Default.aspx?name=+[Jace]+[Beleren]
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+  response: 
+    status: 
+      code: 302
+      message: Found
+    headers: 
+      date: 
+      - Sat, 17 Nov 2012 17:18:20 GMT
+      server: 
+      - Microsoft-IIS/6.0
+      x-powered-by: 
+      - ASP.NET
+      x-aspnet-version: 
+      - 2.0.50727
+      location: 
+      - /Pages/Card/Details.aspx?multiverseid=205960
+      set-cookie: 
+      - ASP.NET_SessionId=zaivzb55124on445mb0xd2ai; path=/; HttpOnly
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:20 GMT; path=/
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:20 GMT; path=/
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:20 GMT; path=/
+      - BIGipServerWWWNetPool02=4178577674.20480.0000; path=/
+      cache-control: 
+      - private
+      content-type: 
+      - text/html; charset=utf-8
+      content-length: 
+      - "171"
+    body: 
+      encoding: US-ASCII
+      string: |
+        <html><head><title>Object moved</title></head><body>
+        <h2>Object moved to <a href="%2fPages%2fCard%2fDetails.aspx%3fmultiverseid%3d205960">here</a>.</h2>
+        </body></html>
+
+    http_version: "1.1"
+  recorded_at: Sat, 17 Nov 2012 17:18:21 GMT
+- request: 
+    method: get
+    uri: http://gatherer.wizards.com/Pages/Card/Details.aspx?multiverseid=205960
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: 
+      accept: 
+      - "*/*"
+      user-agent: 
+      - Ruby
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      date: 
+      - Sat, 17 Nov 2012 17:18:21 GMT
+      server: 
+      - Microsoft-IIS/6.0
+      x-powered-by: 
+      - ASP.NET
+      x-aspnet-version: 
+      - 2.0.50727
+      set-cookie: 
+      - ASP.NET_SessionId=ywkn4d45c0tvvjqt3m2mfbub; path=/; HttpOnly
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:21 GMT; path=/
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:21 GMT; path=/
+      - CardDatabaseSettings=0=0; expires=Tue, 12-Nov-2013 17:18:21 GMT; path=/
+      - BIGipServerWWWNetPool02=2500856074.20480.0000; path=/
+      cache-control: 
+      - private
+      content-type: 
+      - text/html; charset=utf-8
+      content-length: 
+      - "38881"
+    body: 
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\r\n\
+        \r\n\
+        \r\n\
+        \r\n\
+        <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n\
+        <html xmlns=\"http://www.w3.org/1999/xhtml\">\r\n\
+        <head><title>\r\n\
+        \tJace Beleren (Magic 2011) - Gatherer - Magic: The Gathering\r\n\
+        </title><link rel=\"shortcut icon\" href=\"/Images/favicon.ico\" /><meta name=\"description\" content=\"Gatherer is the Magic Card Database. Search for the perfect addition to your deck. Browse through cards from Magic's entire history. See cards from the most recent sets and discover what players just like you are saying about them.\" /><meta name=\"keywords\" content=\"monitor, gatherer, magic cards, magic the gathering, black lotus, magic: the gathering, wizards of the coast, wizards, trading card game, trading cards, collectible card game, tcg, ccg, magic sets, game, multiplayer, hobby\" />\r\n    \r\n    <!-- google analytics -->\r\n    <script type=\"text/javascript\">\r\n    var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\r\n    document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\r\n    </script>\r\n    <script type=\"text/javascript\">\r\n    try {\r\n    var pageTracker = _gat._getTracker(\"UA-15020098-7\");\r\n    pageTracker._setDomainName(\".wizards.com\");\r\n    pageTracker._trackPageview();\r\n    } catch(err) {}\r\n    </script>\r\n\
+        <link type=\"text/css\" rel=\"stylesheet\" media=\"screen\" href=\"../../Styles/Styles.css\" /><link href=\"/WebResource.axd?d=GRnNg3t4K46DgrIFhLf_9NAuUGNb9hPC5E3VRvvs03EEanuwjppIYb1ygZbulkgS4u5w9pKS9Yy4Yj6i6DYt9MPjPepf71AnWzo4xZTSDC41&amp;amp;t=634873966152854778\" rel=\"icon\" type=\"image/ico\" /></head>\r\n\
+        <body>\r\n    \r\n\
+        \r\n    <form name=\"aspnetForm\" method=\"post\" action=\"Details.aspx?multiverseid=205960\" id=\"aspnetForm\">\r\n\
+        <input type=\"hidden\" name=\"__VIEWSTATE\" id=\"__VIEWSTATE\" value=\"/wEPDwUKLTQxOTY5NzI3NGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgMFO2N0bDAwJGN0bDAwJGN0bDAwJE1haW5Db250ZW50JFNlYXJjaENvbnRyb2xzJFNlYXJjaENhcmROYW1lBTxjdGwwMCRjdGwwMCRjdGwwMCRNYWluQ29udGVudCRTZWFyY2hDb250cm9scyRTZWFyY2hDYXJkVHlwZXMFO2N0bDAwJGN0bDAwJGN0bDAwJE1haW5Db250ZW50JFNlYXJjaENvbnRyb2xzJFNlYXJjaENhcmRUZXh08eaAgh/v97psiSof7KwBwiyoYMg=\" />\r\n\
+        \r\n\
+        \r\n\
+        <script src=\"../../Scripts/Prototype.js\" type=\"text/javascript\"></script>\r\n\
+        <script src=\"../../Scripts/Utilities.js\" type=\"text/javascript\"></script>\r\n\
+        <script type=\"text/javascript\">\r\n\
+        //<![CDATA[\r\n\
+        var cardSearchPage = '/Pages/Search/Default.aspx';\r\n\
+        var leftStar = '../../Images/Stars/LeftSolid.gif';\r\n\
+        var leftStarClear = '../../Images/Stars/LeftClear.gif';\r\n\
+        var leftStarSelected = '../../Images/Stars/LeftSelected.gif';\r\n\
+        var rightStar = '../../Images/Stars/RightSolid.gif';\r\n\
+        var rightStarClear = '../../Images/Stars/RightClear.gif';\r\n\
+        var rightStarSelected = '../../Images/Stars/RightSelected.gif';\r\n\
+        var utilitiesHandler = '../../Handlers/RPCUtilities.ashx';\r\n\
+        var CardDatabaseSettings = 'CardDatabaseSettings';\r\n\
+        var SelectingCardAction = 'NavigatesToCard';\r\n\
+        var inlineCardSearchHandler = '/Handlers/InlineCardSearch.ashx';\r\n\
+        var autoCompleteGroupBy = 'None';\r\n\
+        var imageHandler = '/Handlers/Image.ashx';\r\n\
+        var cardDetailsPage = '/Pages/Card/Details.aspx';\r\n\
+        var UtilitiesHandler = '/Handlers/RPCUtilities.ashx';\r\n\
+        \r\n\
+        var enableCardSearchAutoComplete = true;\r\n\
+        var enableHintText = true;\r\n\
+        var enableCardSearchAutoCompleteIfNameUnchecked = false;\r\n\
+        \r\n\
+        \r\n\
+        \r\n\
+        function ClientIDs() {}\r\n\
+        ClientIDs.MainForm = 'aspnetForm';\r\n\
+        ClientIDs.MainContainer = 'ctl00_ctl00_ctl00_MainContainer';\r\n\
+        ClientIDs.TopBannerAdvertisementCMS = 'ctl00_ctl00_ctl00_TopBannerAdvertisementCMS';\r\n\
+        ClientIDs.gathererIntroText = 'ctl00_ctl00_ctl00_gathererIntroText';\r\n\
+        ClientIDs.gathererWelcome = 'ctl00_ctl00_ctl00_gathererWelcome';\r\n\
+        ClientIDs.MainContent = 'ctl00_ctl00_ctl00_MainContent';\r\n\
+        ClientIDs.NavigationLinks = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks';\r\n\
+        ClientIDs.NavigationAnchorsContainer = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_NavigationAnchorsContainer';\r\n\
+        ClientIDs.Simple = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Simple';\r\n\
+        ClientIDs.Advanced = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Advanced';\r\n\
+        ClientIDs.Random = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Random';\r\n\
+        ClientIDs.Settings = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Settings';\r\n\
+        ClientIDs.Language = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Language';\r\n\
+        ClientIDs.Help = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Help';\r\n\
+        ClientIDs.Configuration = 'ctl00_ctl00_ctl00_MainContent_NavigationLinks_Configuration';\r\n\
+        ClientIDs.SearchControls = 'ctl00_ctl00_ctl00_MainContent_SearchControls';\r\n\
+        ClientIDs.SearchBoxContainer = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxContainer';\r\n\
+        ClientIDs.CardSearchBoxParent = 'ctl00_ctl00_ctl00_MainContent_SearchControls_CardSearchBoxParent';\r\n\
+        ClientIDs.CardSearchBox = 'ctl00_ctl00_ctl00_MainContent_SearchControls_CardSearchBoxParent_CardSearchBox';\r\n\
+        ClientIDs.searchSubmitButton = 'ctl00_ctl00_ctl00_MainContent_SearchControls_searchSubmitButton';\r\n\
+        ClientIDs.SearchBoxResults = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResults';\r\n\
+        ClientIDs.SearchBoxResultsTitle = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResultsTitle';\r\n\
+        ClientIDs.SearchBoxResultsContent = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResultsContent';\r\n\
+        ClientIDs.AllResultsLink = 'ctl00_ctl00_ctl00_MainContent_SearchControls_AllResultsLink';\r\n\
+        ClientIDs.SearchSettings = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchSettings';\r\n\
+        ClientIDs.searchControlsContainer = 'ctl00_ctl00_ctl00_MainContent_SearchControls_searchControlsContainer';\r\n\
+        ClientIDs.SearchCardName = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardName';\r\n\
+        ClientIDs.SearchCardTypes = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardTypes';\r\n\
+        ClientIDs.SearchCardText = 'ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardText';\r\n\
+        ClientIDs.SubContent = 'ctl00_ctl00_ctl00_MainContent_SubContent';\r\n\
+        ClientIDs.SubContentHeader = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentHeader';\r\n\
+        ClientIDs.subtitleDisplay = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentHeader_subtitleDisplay';\r\n\
+        ClientIDs.SubContentAnchors = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors';\r\n\
+        ClientIDs.DetailsAnchors = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors';\r\n\
+        ClientIDs.ContentNavigationControlsContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_ContentNavigationControlsContainer';\r\n\
+        ClientIDs.Discussion = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Discussion';\r\n\
+        ClientIDs.DiscussionLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_DiscussionLink';\r\n\
+        ClientIDs.Artwork = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Artwork';\r\n\
+        ClientIDs.ArtworkLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_ArtworkLink';\r\n\
+        ClientIDs.Languages = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Languages';\r\n\
+        ClientIDs.LanguagesLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_LanguagesLink';\r\n\
+        ClientIDs.Printings = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Printings';\r\n\
+        ClientIDs.PrintingsLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_PrintingsLink';\r\n\
+        ClientIDs.Details = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Details';\r\n\
+        ClientIDs.DetailsLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_DetailsLink';\r\n\
+        ClientIDs.topPagingControlsContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_topPagingControlsContainer';\r\n\
+        ClientIDs.cardAdminControls = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardAdminControls';\r\n\
+        ClientIDs.editLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_editLink';\r\n\
+        ClientIDs.imageDivContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_imageDivContainer';\r\n\
+        ClientIDs.image = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_image';\r\n\
+        ClientIDs.otherVariationsOverlay = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherVariationsOverlay';\r\n\
+        ClientIDs.otherVariationsOverlation = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherVariationsOverlation';\r\n\
+        ClientIDs.overlayVariationLinks = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_overlayVariationLinks';\r\n\
+        ClientIDs.wordingWrapperRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_wordingWrapperRow';\r\n\
+        ClientIDs.wordingWrapper = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_wordingWrapper';\r\n\
+        ClientIDs.cardComponent0 = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardComponent0';\r\n\
+        ClientIDs.imagePlaceHolder = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_imagePlaceHolder';\r\n\
+        ClientIDs.cardImage = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardImage';\r\n\
+        ClientIDs.specialCaseBreaker = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_specialCaseBreaker';\r\n\
+        ClientIDs.otherVariations = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherVariations';\r\n\
+        ClientIDs.variationLinks = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_variationLinks';\r\n\
+        ClientIDs.specialCaseLayoutBreakers = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_specialCaseLayoutBreakers';\r\n\
+        ClientIDs.rightCol = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rightCol';\r\n\
+        ClientIDs.cardWordingSwitch = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardWordingSwitch';\r\n\
+        ClientIDs.cardParts = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardParts';\r\n\
+        ClientIDs.nameRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameRow';\r\n\
+        ClientIDs.nameLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameLabel';\r\n\
+        ClientIDs.nameValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameValue';\r\n\
+        ClientIDs.manaRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manaRow';\r\n\
+        ClientIDs.manacostLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manacostLabel';\r\n\
+        ClientIDs.manacostValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manacostValue';\r\n\
+        ClientIDs.cmcRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cmcRow';\r\n\
+        ClientIDs.cmcLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cmcLabel';\r\n\
+        ClientIDs.cmcValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cmcValue';\r\n\
+        ClientIDs.typeRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeRow';\r\n\
+        ClientIDs.typeLineLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeLineLabel';\r\n\
+        ClientIDs.typeLineValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeLineValue';\r\n\
+        ClientIDs.textRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow';\r\n\
+        ClientIDs.cardTextLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardTextLabel';\r\n\
+        ClientIDs.cardTextValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardTextValue';\r\n\
+        ClientIDs.flavorRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_flavorRow';\r\n\
+        ClientIDs.flavorTextLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_flavorTextLabel';\r\n\
+        ClientIDs.FlavorText = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_FlavorText';\r\n\
+        ClientIDs.flavorTextValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_flavorTextValue';\r\n\
+        ClientIDs.markRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_markRow';\r\n\
+        ClientIDs.markTextLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_markTextLabel';\r\n\
+        ClientIDs.markTextValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_markTextValue';\r\n\
+        ClientIDs.colorIndicatorRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_colorIndicatorRow';\r\n\
+        ClientIDs.colorIndicatorLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_colorIndicatorLabel';\r\n\
+        ClientIDs.colorIndicatorValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_colorIndicatorValue';\r\n\
+        ClientIDs.ptRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ptRow';\r\n\
+        ClientIDs.bottomNumbersLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_bottomNumbersLabel';\r\n\
+        ClientIDs.bottomNumbersValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_bottomNumbersValue';\r\n\
+        ClientIDs.setRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_setRow';\r\n\
+        ClientIDs.setLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_setLabel';\r\n\
+        ClientIDs.currentSetSymbol = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentSetSymbol';\r\n\
+        ClientIDs.setValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_setValue';\r\n\
+        ClientIDs.rarityRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rarityRow';\r\n\
+        ClientIDs.rarityLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rarityLabel';\r\n\
+        ClientIDs.rarityValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rarityValue';\r\n\
+        ClientIDs.otherSetsRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherSetsRow';\r\n\
+        ClientIDs.otherSetsLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherSetsLabel';\r\n\
+        ClientIDs.otherSetsValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherSetsValue';\r\n\
+        ClientIDs.numberRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_numberRow';\r\n\
+        ClientIDs.numberLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_numberLabel';\r\n\
+        ClientIDs.numberValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_numberValue';\r\n\
+        ClientIDs.artistRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_artistRow';\r\n\
+        ClientIDs.artistLabel = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_artistLabel';\r\n\
+        ClientIDs.ArtistCredit = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit';\r\n\
+        ClientIDs.artistValue = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_artistValue';\r\n\
+        ClientIDs.playerRatingRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_playerRatingRow';\r\n\
+        ClientIDs.ratingResult = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ratingResult';\r\n\
+        ClientIDs.currentRating = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating';\r\n\
+        ClientIDs.starRating = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_starRating';\r\n\
+        ClientIDs.textRatingContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_textRatingContainer';\r\n\
+        ClientIDs.textRating = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_textRating';\r\n\
+        ClientIDs.totalVotes = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_totalVotes';\r\n\
+        ClientIDs.extraVoteInfo = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_extraVoteInfo';\r\n\
+        ClientIDs.discussionLink = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_discussionLink';\r\n\
+        ClientIDs.rulingsRow = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRow';\r\n\
+        ClientIDs.rulingsContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsContainer';\r\n\
+        ClientIDs.rulingsRepeater = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRepeater';\r\n\
+        ClientIDs.rulingDate = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRepeater_ctl00_rulingDate';\r\n\
+        ClientIDs.rulingText = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRepeater_ctl00_rulingText';\r\n\
+        ClientIDs.cardComponent1 = 'ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardComponent1';\r\n\
+        ClientIDs.bottomPagingControlsContainer = 'ctl00_ctl00_ctl00_MainContent_SubContent_bottomPagingControlsContainer';\r\n\
+        ClientIDs.loginLinkPlaceholder = 'ctl00_ctl00_ctl00_loginLinkPlaceholder';\r\n\
+        ClientIDs.CopyrightYear = 'ctl00_ctl00_ctl00_CopyrightYear';\r\n\
+        ClientIDs.RightBannerAdvertisement = 'ctl00_ctl00_ctl00_RightBannerAdvertisement';\r\n\
+        var textBoxHash = new Hash( { ctl00_ctl00_ctl00_MainContent_SearchControls_CardSearchBoxParent_CardSearchBox: 'Search Terms...' } );//]]>\r\n\
+        </script>\r\n\
+        \r\n\
+        <script src=\"../../Scripts/Constants.js\" type=\"text/javascript\"></script>\r\n\
+        <script src=\"../../Scripts/CardDatabase.js\" type=\"text/javascript\"></script>\r\n\
+        <script src=\"../../Scripts/CardDetails.js\" type=\"text/javascript\"></script>\r\n\
+        <script src=\"../../Scripts/StarRating.js\" type=\"text/javascript\"></script>\r\n\
+        <script src=\"../../Scripts/SearchControls.js\" type=\"text/javascript\"></script>\r\n\
+        <script type=\"text/javascript\">\r\n\
+        //<![CDATA[\r\n\
+        Event.observe(window, 'load', SubscribeToStarEvents);\r\n\
+        //]]>\r\n\
+        </script>\r\n\
+        \r\n\
+        <input type=\"hidden\" name=\"__EVENTVALIDATION\" id=\"__EVENTVALIDATION\" value=\"/wEWBgKBx/f1CgKw+7DyCgKKqPSlCQLIiJiWCgLgiMDeAwKBjNExzlwNG+VjazOiCGcrd1YqUcDjdvo=\" />\r\n    <div style=\"width: 100%; height: 1px;\">\r\n    </div>\r\n    <div id=\"ctl00_ctl00_ctl00_MainContainer\" class=\"mainContainer\">\r\n        <div class=\"leftContainer\">\r\n            <div id=\"ctl00_ctl00_ctl00_TopBannerAdvertisementCMS\" class=\"topBanner\"><body docname=\"mtg_gatherer_banner_advertisement\" doclang=\"en\" xmlPath=\"\" useDate=\"11/17/2012\">\r\n  <a href=\"http://www.wizards.com/Magic/tcg/events.aspx?x=events/magic/fnm\" target=\"_blank\">\r\n    <img src=\"http://media.wizards.com/images/magic/daily/ads/20121029_fnm_728.jpg\" />\r\n  </a>\r\n\
+        </body></div>\r\n            <div class=\"background\">\r\n                <div class=\"top\">\r\n                    <div class=\"left\">\r\n                    </div>\r\n                    <div class=\"middle\">\r\n                    </div>\r\n                    <div class=\"right\">\r\n                    </div>\r\n                </div>\r\n                <div class=\"center\">\r\n                    <div class=\"middle\">\r\n                        <div class=\"middleright\">\r\n                            <div class=\"gathererContent\">\r\n                                \r\n\
+        \r\n\
+        <div class=\"logo\">\r\n    <a class=\"magic\" href=\"http://www.magicthegathering.com\"></a>\r\n\
+        \t<a href=\"../Default.aspx\" class=\"cardDatabase\"></a>\r\n\
+        </div>\r\n\
+        \r\n                                \r\n                                \r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_NavigationAnchorsContainer\" class=\"searchcontrollinks\">\r\n    <a href=\"../Default.aspx\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Simple\" class=\"current\">Simple</a>\r\n    <a href=\"../Advanced.aspx\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Advanced\">Advanced</a>\r\n    <a href=\"Details.aspx?action=random\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Random\">Random Card</a>\r\n    <a href=\"../Settings.aspx\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Settings\">Settings</a>\r\n    <a href=\"../Language.aspx\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Language\">Language</a>\r\n    <a href=\"../Help.aspx\" id=\"ctl00_ctl00_ctl00_MainContent_NavigationLinks_Help\">Help</a>\r\n    \r\n\
+        </div>\r\n\
+        \r\n    \r\n    \r\n\
+        <div class=\"searchcontrols\">\r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxContainer\" class=\"searchboxcontainertop\">\r\n        \r\n\
+        \r\n\
+        <div class=\"textbox\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_CardSearchBoxParent\" style=\"\"><input name=\"ctl00$ctl00$ctl00$MainContent$SearchControls$CardSearchBoxParent$CardSearchBox\" type=\"text\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_CardSearchBoxParent_CardSearchBox\" class=\"textboxinput\" onblur=\"SetCurrentControlBlur(event)\" onfocus=\"SetCurrentControlFocus(event, this);\" autocomplete=\"off\" maxlength=\"50\" /></div>\r\n    </div>\r\n    <div class=\"searchsubmit\">\r\n        <input type=\"submit\" name=\"ctl00$ctl00$ctl00$MainContent$SearchControls$searchSubmitButton\" value=\"Search\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_searchSubmitButton\" class=\"searchbutton\" />\r\n    </div>\r\n    <br class=\"clear\" />\r\n    <!-- Autocomplete Results -->\r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResults\" class=\"searchresultscontainertop\">\r\n        <div class=\"smallGreyBorder\">\r\n            <b class=\"ct\"><b></b></b>\r\n            <div class=\"simpleRoundedBoxTitleGrey\">\r\n                <span id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResultsTitle\" class=\"boldtitle\">Results </span>\r\n            </div>\r\n            <div id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchBoxResultsContent\" style=\"background-color: #b7b7b7;\">\r\n            </div>\r\n            <div class=\"simpleRoundedBoxFooterGrey\">\r\n                <span><a href=\"javascript:void(0);\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_AllResultsLink\" class=\"autoCompleteAllResults\">\r\n                    All Results</a></span></div>\r\n            <b class=\"cc\"><b></b></b>\r\n        </div>\r\n    </div>\r\n    <!-- /Autocomplete Results -->\r\n    <!-- Search Settings -->\r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchSettings\" class=\"searchsettingsdisplaytop\">\r\n        <div class=\"searchsettings\">\r\n            <a href=\"javascript:void(0);\" onclick=\"SaveVisibleArea(event, this, ClientIDs.searchControlsContainer, 'searchControlsContainer', false); return ToggleSearchSettings(event, this);\"\r\n                class=\"expandedNode\"><b>using...</b></a>\r\n            <div id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_searchControlsContainer\">\r\n            <ul>\r\n                <li>\r\n                    <input name=\"ctl00$ctl00$ctl00$MainContent$SearchControls$SearchCardName\" type=\"checkbox\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardName\" checked=\"checked\" onclick=\"UpdateSimpleSearchFields\" />\r\n                    Name</li>\r\n                <li>\r\n                    <input name=\"ctl00$ctl00$ctl00$MainContent$SearchControls$SearchCardTypes\" type=\"checkbox\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardTypes\" onclick=\"UpdateSimpleSearchFields\" />\r\n                    Types</li>\r\n                <li>\r\n                    <input name=\"ctl00$ctl00$ctl00$MainContent$SearchControls$SearchCardText\" type=\"checkbox\" id=\"ctl00_ctl00_ctl00_MainContent_SearchControls_SearchCardText\" onclick=\"UpdateSimpleSearchFields\" />\r\n                    Text</li>\r\n            </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!-- /Search Settings -->\r\n\
+        </div>\r\n    <br class=\"clear\" />\r\n    \r\n    \r\n    <div class=\"contentcontainer\">\r\n        <div class=\"smallGreyBorder\">\r\n            <b class=\"dt\"><b></b></b>\r\n            <div class=\"simpleRoundedBoxTitleGreyTall\">\r\n                <div class=\"contentTitle\">\r\n                    \r\n    <span id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentHeader_subtitleDisplay\">Jace Beleren</span>\r\n\
+        \r\n                </div>\r\n                \r\n    <ul id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_ContentNavigationControlsContainer\" class=\"contentlinks\">\r\n    <li id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Discussion\"><a href=\"Discussion.aspx?multiverseid=205960\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_DiscussionLink\"><span>Discussion</span></a></li>\r\n    \r\n    <li id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Languages\"><a href=\"Languages.aspx?multiverseid=205960\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_LanguagesLink\"><span>Languages</span></a></li>\r\n    <li id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Printings\"><a href=\"Printings.aspx?multiverseid=205960\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_PrintingsLink\"><span>Sets &amp; Legality</span></a></li>\r\n    <li id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_Details\" class=\"current\"><a href=\"Details.aspx?multiverseid=205960\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContentAnchors_DetailsAnchors_DetailsLink\"><span>Details</span></a></li>\r\n\
+        </ul>\r\n\
+        \r\n\
+        \r\n                <div class=\"pagingcontrols\">\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_topPagingControlsContainer\" class=\"paging\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            \r\n    \r\n    <!-- Rotated Image Container -->\r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_imageDivContainer\" class=\"imageContainer\">\r\n        <div class=\"smallGreyBorderBottom\">\r\n            <div class=\"cardViewContainer\">\r\n                <div class=\"close\">\r\n                    <a href=\"javascript:void(0);\" onclick=\"return CloseCardViewer(event, this);\"></a>\r\n                </div>\r\n                <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_image\" class=\"imageHolder\">\r\n                </div>\r\n                \r\n                <div class=\"rotate\">\r\n                    <a href=\"javascript:void(0);\" onclick=\"return RotateCardImage(event, this, false);\">\r\n                    </a>\r\n                </div>\r\n            </div>\r\n            <b class=\"bb\"><b></b></b>\r\n        </div>\r\n    </div>\r\n    <!-- End Rotated Image Container -->\r\n    <!-- Card Details Table -->\r\n    <table>\r\n        <tr id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_wordingWrapperRow\" style=\"display: none;\">\r\n\
+        \t<td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_wordingWrapper\" colspan=\"2\"></td>\r\n\
+        </tr>\r\n\
+        \r\n        <tr>\r\n            <td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardComponent0\" class=\"cardComponentContainer\">\r\n                <table class=\"cardDetails\" style=\"position: relative; margin: auto;\">\r\n        <tr>\r\n            <td class=\"leftCol\" align=\"center\">\r\n                <img src=\"../../Handlers/Image.ashx?multiverseid=205960&amp;type=card\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardImage\" alt=\"Jace Beleren\" style=\"border:none;\" />\r\n                \r\n                <div class=\"variations\">\r\n                    &nbsp;\r\n                    \r\n                </div>\r\n                <div class=\"rotate\">\r\n                    <a href=\"javascript:void(0)\" rel=\"lightbox\" onclick=\"return RotateCardImage(event, this, true);\">\r\n                    </a>\r\n                </div>\r\n            </td>\r\n\
+        \r\n        \r\n            <td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rightCol\" class=\"rightCol\">\r\n                <div class=\"smallGreyMono\">\r\n                    <b class=\"ft\"><b></b></b>\r\n                    <div style=\"padding-left: 5px; font-size:.85em;\">\r\n                        Display: <b><a id=\"cardTextSwitchLink1\" href='/Pages/Card/Details.aspx?printed=false&multiverseid=205960' class=\"selected\">Oracle</a></b> | <a id=\"cardTextSwitchLink2\" href='/Pages/Card/Details.aspx?printed=true&multiverseid=205960'>Printed</a>\r\n                        \r\n                    </div>\r\n                    <b class=\"ff\"><b></b></b>\r\n                </div>\r\n                <div class=\"smallGreyMono\" style=\"margin-top: 10px;\">\r\n                    <b class=\"ft\"><b></b></b>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_nameRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Card Name:</div>\r\n                        <div class=\"value\">\r\n                            Jace Beleren</div>\r\n                    </div>\r\n                    \r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_manaRow\" class=\"row\">\r\n                        <div class=\"label\" style=\"line-height:25px;\">\r\n                            Mana Cost:</div>\r\n                        <div class=\"value\">\r\n                            <img src=\"/Handlers/Image.ashx?size=medium&amp;name=1&amp;type=symbol\" alt=\"1\" align=\"absbottom\" /><img src=\"/Handlers/Image.ashx?size=medium&amp;name=U&amp;type=symbol\" alt=\"Blue\" align=\"absbottom\" /><img src=\"/Handlers/Image.ashx?size=medium&amp;name=U&amp;type=symbol\" alt=\"Blue\" align=\"absbottom\" /></div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cmcRow\" class=\"row\" style=\"height:15px; position:relative;\">\r\n                        <div class=\"label\" style=\"font-size:.7em;\">\r\n                            Converted Mana Cost:</div>\r\n                        <div class=\"value\">\r\n                            3<br /><br /></div>\r\n                    </div>\r\n                    \r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_typeRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Types:</div>\r\n                        <div class=\"value\">\r\n                            Planeswalker  \xE2\x80\x94 Jace</div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_textRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Card Text:</div>\r\n                        <div class=\"value\">\r\n                            <div class=\"cardtextbox\">+2: Each player draws a card.</div><div class=\"cardtextbox\">-1: Target player draws a card.</div><div class=\"cardtextbox\">-10: Target player puts the top twenty cards of his or her library into his or her graveyard.</div></div>\r\n                    </div>\r\n                    \r\n                    \r\n                    \r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ptRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Loyalty:</div>\r\n                        <div class=\"value\">\r\n                            3</div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_setRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Expansion:</div>\r\n                        <div class=\"value\">\r\n                            <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentSetSymbol\">\r\n\
+        \t<a href=\"Details.aspx?multiverseid=205960\"><img title=\"Magic 2011 (Mythic Rare)\" src=\"../../Handlers/Image.ashx?type=symbol&amp;set=M11&amp;size=small&amp;rarity=M\" alt=\"Magic 2011 (Mythic Rare)\" align=\"absmiddle\" border=\"0\" /></a>\r\n                                <a href=\"/Pages/Search/Default.aspx?action=advanced&amp;set=[%22Magic 2011%22]\">Magic 2011</a>\r\n                            \r\n\
+        </div>\r\n                        </div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rarityRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Rarity:</div>\r\n                        <div class=\"value\">\r\n                            <span class='mythic'>Mythic Rare</span></div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherSetsRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            All Sets:</div>\r\n                        <div class=\"value\">\r\n                            <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_otherSetsValue\">\r\n\
+        \t\r\n                            <a href=\"Details.aspx?multiverseid=191240\"><img title=\"Magic 2010 (Mythic Rare)\" src=\"../../Handlers/Image.ashx?type=symbol&amp;set=M10&amp;size=small&amp;rarity=M\" alt=\"Magic 2010 (Mythic Rare)\" align=\"absmiddle\" border=\"0\" /></a><a href=\"Details.aspx?multiverseid=205960\"><img title=\"Magic 2011 (Mythic Rare)\" src=\"../../Handlers/Image.ashx?type=symbol&amp;set=M11&amp;size=small&amp;rarity=M\" alt=\"Magic 2011 (Mythic Rare)\" align=\"absmiddle\" border=\"0\" /></a><a href=\"Details.aspx?multiverseid=140222\"><img title=\"Lorwyn (Rare)\" src=\"../../Handlers/Image.ashx?type=symbol&amp;set=LRW&amp;size=small&amp;rarity=R\" alt=\"Lorwyn (Rare)\" align=\"absmiddle\" border=\"0\" /></a><a href=\"Details.aspx?multiverseid=185816\"><img title=\"Duel Decks: Jace vs. Chandra (Mythic Rare)\" src=\"../../Handlers/Image.ashx?type=symbol&amp;set=DD2&amp;size=small&amp;rarity=M\" alt=\"Duel Decks: Jace vs. Chandra (Mythic Rare)\" align=\"absmiddle\" border=\"0\" /></a>\r\n\
+        </div>\r\n                        </div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_numberRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Card #:</div>\r\n                        <div class=\"value\">\r\n                            58</div>\r\n                    </div>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_artistRow\" class=\"row\">\r\n                        <div class=\"label\">\r\n                            Artist:</div>\r\n                        <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ArtistCredit\" class=\"value\">\r\n                            <a href=\"/Pages/Search/Default.aspx?action=advanced&amp;artist=[%22Aleksi Briclot%22]\">Aleksi Briclot</a></div>\r\n                    </div>\r\n                    <b class=\"ff\"><b></b></b>\r\n                </div>\r\n                <div class=\"smallGreyMono\" style=\"margin-top: 10px;\">\r\n                    <b class=\"ft\"><b></b></b>\r\n                    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_playerRatingRow\" class=\"row\">\r\n                        <div class=\"label\" style=\"width:127px; line-height:30px;\">\r\n                            Community Rating:</div>\r\n                        <div class=\"value\">\r\n                            <span id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_ratingResult\" class=\"ratingResult\" style=\"float:right; padding-right:100px; padding-top: 5px; position:relative;\"></span>\r\n                            <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_starRating\" class=\"starRating\"><img src=\"../../Images/Stars/LeftSolid.gif\" alt=\"0.5\" /><img src=\"../../Images/Stars/RightSolid.gif\" alt=\"1.0\" /><img src=\"../../Images/Stars/LeftSolid.gif\" alt=\"1.5\" /><img src=\"../../Images/Stars/RightSolid.gif\" alt=\"2.0\" /><img src=\"../../Images/Stars/LeftSolid.gif\" alt=\"2.5\" /><img src=\"../../Images/Stars/RightSolid.gif\" alt=\"3.0\" /><img src=\"../../Images/Stars/LeftSolid.gif\" alt=\"3.5\" /><img src=\"../../Images/Stars/RightSolid.gif\" alt=\"4.0\" /><img src=\"../../Images/Stars/LeftClear.gif\" alt=\"4.5\" /><img src=\"../../Images/Stars/RightClear.gif\" alt=\"5.0\" />\r\n    <br/>\r\n    <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_textRatingContainer\" class=\"textRating\">\r\n        Rating: <span id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_textRating\" class=\"textRatingValue\">4.002</span> / 5&nbsp;&nbsp;(<span id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_totalVotes\" class=\"totalVotesValue\">286</span><span id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_currentRating_extraVoteInfo\"> votes</span>)</div>\r\n\
+        </div>\r\n\
+        \r\n                        </div>\r\n                    </div>\r\n                    <div style=\"padding-left: 5px; font-size:.85em;\">\r\n                        Click <a href=\"/Pages/Card/Discussion.aspx?multiverseid=205960\" id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_discussionLink\">here</a> to <b>rate</b> and\r\n                        <b>discuss</b> this card.</div>\r\n                    <b class=\"ff\"><b></b></b>\r\n                </div>\r\n            </td>\r\n\
+        \r\n        </tr>\r\n        <tr id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRow\">\r\n\
+        \t<td colspan=\"2\">\r\n                <div class=\"smallGreyBorder\">\r\n                    <b class=\"at\"><b></b></b>\r\n                    <div class=\"simpleRoundedBoxTitleGrey\">\r\n                        <span class=\"boldtitle\">Rulings</span></div>\r\n                    <div class=\"discussion\">\r\n                        <a href=\"javascript:void(0);\" onclick=\"SaveVisibleArea(event, this, ClientIDs.rulingsContainer, 'rulingsContainer', false); return DisplayRulings(event, this, 'Display Rulings', 'Hide Rulings');\"\r\n                            class=\"collapsedNode\"><b>\r\n                                Display Rulings</b></a>\r\n                        <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsContainer\" class=\"postContainer\" style=\"display:none;\">\r\n                            <table cellpadding=\"0\" cellspacing=\"0\">\r\n                                \r\n                                        <tr class=\"post evenItem\" style=\"background-color: #efefef;\">\r\n                                            <td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRepeater_ctl00_rulingDate\" style=\"width: 70px; padding-left: 10px; font-weight: bold;\">10/1/2009</td>\r\n\
+        \t\r\n                                            <td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_rulingsRepeater_ctl00_rulingText\" style=\"width: 610px; padding-right: 5px;\">If there are fewer than twenty cards in the targeted player's library, that player puts all the cards from his or her library into his or her graveyard.</td>\r\n\
+        \t\r\n                                        </tr>\r\n                                    \r\n                            </table>\r\n                        </div>\r\n                    </div>\r\n                    <b class=\"aa\"><b></b></b>\r\n                </div>\r\n            </td>\r\n\
+        </tr>\r\n\
+        \r\n    </table>\r\n            </td>\r\n\
+        \r\n            <td id=\"ctl00_ctl00_ctl00_MainContent_SubContent_SubContent_cardComponent1\" class=\"cardComponentContainer\">\r\n            </td>\r\n\
+        \r\n      </tr>\r\n    </table>\r\n    <!-- End Card Details Table -->\r\n\
+        \r\n            <div class=\"clear\"></div>\r\n            <div id=\"ctl00_ctl00_ctl00_MainContent_SubContent_bottomPagingControlsContainer\">\r\n            </div>\r\n            <b class=\"dd\"><b></b></b>\r\n        </div>\r\n    </div>\r\n\
+        \r\n\
+        \r\n\
+        \r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"bottom\">\r\n                        <div class=\"left\">\r\n                        </div>\r\n                        <div class=\"middle\">\r\n                        </div>\r\n                        <div class=\"right\">\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"footer\">\r\n                <a href=\"http://www.magicthegathering.com\">magicthegathering.com</a>&nbsp;&nbsp;\r\n                <a href=\"http://www.wizards.com/magic/Digital/MagicOnline.aspx\">Magic: The Gathering\r\n                    Online</a>&nbsp;&nbsp; <a href=\"../Settings.aspx\">Settings</a>&nbsp;&nbsp;\r\n                <a href=\"../Language.aspx\">Language</a>&nbsp;&nbsp; <a href=\"../Help.aspx\">Help</a>&nbsp;|&nbsp;\r\n                    <a href=\"../Login.aspx?returnurl=%2fPages%2fCard%2fDetails.aspx%3fmultiverseid%3d205960\">Login</a>\r\n                <div class=\"wizardsFooterSection\">\r\n                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; 1995 - 2012 <a href=\"http://www.wizards.com\">Wizards of the Coast</a> LLC,\r\n                    a subsidiary of Hasbro, Inc. All Rights Reserved.\r\n                </div>\r\n                <br />\r\n                <span class=\"smalldate\"></span>\r\n            </div>\r\n        </div>\r\n        <div class=\"rightContainer\">\r\n            \r\n        </div>\r\n    </div>\r\n    </form>\r\n\
+        </body>\r\n\
+        </html>\r\n"
+    http_version: "1.1"
+  recorded_at: Sat, 17 Nov 2012 17:18:21 GMT
+recorded_with: VCR 2.3.0

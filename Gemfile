@@ -9,8 +9,7 @@ gem 'rdoc'
 gem 'yard'
 gem 'bluecloth'
 gem 'shoulda'
-
-# Test dependencies
+gem 'vcr'
 gem 'fakeweb'
 
 # Runtime dependencies

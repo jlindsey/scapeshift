@@ -39,24 +39,6 @@ make stuff work, you will need to start a subshell with
 
 Replacing `bash` with the shell of your choice, of course.
 
-Testing
--------
-
-This gem's tests use fakeweb to mock HTTP connections and speed things up. To run the tests you must first run:
-
-    rake fakeweb:update
-
-This will download the content of the urls needed in tests (and specified in `test/fakeweb.urls`) and store them in
-local files for quick access.
-
-Then to run the tests just run
-
-    rake
-
-If you write a test that opens up a new URL the test will automatically fail because FakeWeb is configured to not allow
-actual HTTP connections to open and the new URL is not configured for the cache. To do this just add the new URL in the
-`test/fakeweb.urls` file and update the caches with `rake fakeweb:update`.
-
 Documentation
 -------------
 

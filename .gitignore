@@ -31,6 +31,3 @@ doc/*
 .bundle/*
 
 ## PROJECT::SPECIFIC
-
-## FAKEWEB CACHE FILES
-test/fakeweb/*.html
